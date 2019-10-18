@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="li.mapper.comment">
+	<resultMap type="li.model.Comment" id="setComment">
+	<id column="id" property="id" />
+	<result column="parent_id" property="parentId"/>
+	<result column="type" property="type"/>
+	<result column="commentator" property="commentator"/>
+	<result column="gmt_create" property="gmtCreate"/>
+	<result column="gmt_modified" property="gmtModified"/>
+	<result column="like_count" property="likeCount"/>
+	<result column="comment_count" property="commentCount"/>
+	</resultMap>
+	<insert id="insertComm" parameterType="li.model.Comment">
+	insert into comment (parent_id,content,type,gmt_create,gmt_modified,commentator)
+	 values
+	 (#{parentId},#{content},#{type},#{gmtCreate},#{gmtModified},#{commentator})
+	
+	</insert>
+	<select id="parentId" resultMap="setComment" parameterType="long">
+	select * from comment where parent_id=#{parentId}
+	
+	</select>
+	<select id="selectById" resultMap="setComment" parameterType="long">
+	select * from comment where id=#{id}
+	</select>
+	<select id="listByParentId" resultMap="setComment" parameterType="li.model.Comment">
+	select * from comment where parent_id=#{parentId} and type=#{type} ORDER BY gmt_create DESC
+	
+	</select>
+	<update id="incCommentCount" parameterType="li.model.Comment">
+		update comment set comment_count=comment_count + 1 where id=#{id}
+	</update>
+</mapper>

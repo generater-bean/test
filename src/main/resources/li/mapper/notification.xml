@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="li.mapper.notification">
+	<resultMap type="li.model.Notification" id="setNotification">
+		<id column="id" property="id" />
+		<result column="notifier" property="notifier" />
+		<result column="type" property="type" />
+		<result column="receiver" property="receiver" />
+		<result column="gmt_create" property="gmtCreate" />
+		<result column="outerId" property="outerId" />
+		<result column="status" property="status" />
+		<result column="notifier_name" property="notifierName" />
+		<result column="outer_title" property="outerTitle" />
+	</resultMap>
+	<select id="acountByReceiver" resultType="java.lang.Integer"
+		parameterType="long">
+		select count(1) from notification where receiver=#{receiver}
+	</select>
+	<select id="acountByReceiverStatus" resultType="java.lang.Integer"
+		parameterType="li.model.Notification">
+		select count(1) from notification where receiver=#{receiver} and status=#{status}
+	</select>
+	<select id="selectById" resultMap="setNotification"
+		parameterType="long">
+		select * from notification where id=#{id}
+	</select>
+	
+	<select id="selectByReceiver" resultMap="setNotification"
+		parameterType="li.model.Profile">
+		select * from notification where receiver=#{userId} 
+		ORDER BY gmt_create DESC limit #{offset},#{size}
+	</select>
+	<insert id="insert" parameterType="li.model.Notification">
+		insert into notification 
+		(notifier,type,receiver,gmt_create,outerId,status,notifier_name,outer_title)
+		 values(#{notifier},#{type},#{receiver},#{gmtCreate},#{outerId},#{status},#{notifierName},#{outerTitle}
+		)
+	</insert>
+	<update id="updateById" parameterType="li.model.Notification">
+	 update notification set status=#{status} where id=#{id}
+		</update>
+</mapper>

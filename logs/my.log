@@ -1,0 +1,252 @@
+2019-10-18 17:07:46.116  INFO 1676 --- [restartedMain] li.TestApplication                       : Starting TestApplication on DESKTOP-0NQCRR2 with PID 1676 (D:\code\test-master\target\classes started by Administrator in D:\code\test-master)
+2019-10-18 17:07:46.128  INFO 1676 --- [restartedMain] li.TestApplication                       : No active profile set, falling back to default profiles: default
+2019-10-18 17:07:46.337  INFO 1676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-18 17:07:46.338  INFO 1676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-18 17:07:47.556  WARN 1676 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[li]' package. Please check your configuration.
+2019-10-18 17:07:48.714  INFO 1676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2019-10-18 17:07:48.766  INFO 1676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 17:07:48.767  INFO 1676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-10-18 17:07:48.790  INFO 1676 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\jdk1.8.0_181\jre\bin;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;D:\桌面;;.]
+2019-10-18 17:07:48.944  INFO 1676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-18 17:07:48.945  INFO 1676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2606 ms
+2019-10-18 17:07:49.512  INFO 1676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 17:07:49.751  INFO 1676 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-18 17:07:50.096  INFO 1676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-18 17:07:50.190  INFO 1676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2019-10-18 17:07:50.197  INFO 1676 --- [restartedMain] li.TestApplication                       : Started TestApplication in 4.611 seconds (JVM running for 5.31)
+2019-10-18 17:07:58.622  INFO 1676 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-18 17:07:58.623  INFO 1676 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-18 17:07:58.638  INFO 1676 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2019-10-18 17:08:20.243  WARN 1676 --- [http-nio-8887-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in li/mapper/sql.xml
+### The error may involve li.mapper.sql.acountBySearch
+### The error occurred while executing a query
+### Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]
+2019-10-18 17:08:23.710  INFO 1676 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-18 17:08:24.185  INFO 1676 --- [restartedMain] li.TestApplication                       : Starting TestApplication on DESKTOP-0NQCRR2 with PID 1676 (D:\code\test-master\target\classes started by Administrator in D:\code\test-master)
+2019-10-18 17:08:24.185  INFO 1676 --- [restartedMain] li.TestApplication                       : No active profile set, falling back to default profiles: default
+2019-10-18 17:08:24.524  WARN 1676 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[li]' package. Please check your configuration.
+2019-10-18 17:08:24.716  INFO 1676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2019-10-18 17:08:24.718  INFO 1676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 17:08:24.718  INFO 1676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-10-18 17:08:24.753  INFO 1676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-18 17:08:24.753  INFO 1676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 565 ms
+2019-10-18 17:08:24.997  INFO 1676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 17:08:25.056  INFO 1676 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-18 17:08:25.300  INFO 1676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-18 17:08:25.328  INFO 1676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2019-10-18 17:08:25.329  INFO 1676 --- [restartedMain] li.TestApplication                       : Started TestApplication in 1.185 seconds (JVM running for 40.443)
+2019-10-18 17:08:25.332  INFO 1676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-18 17:08:51.510  INFO 1676 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-18 17:08:51.511  INFO 1676 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-18 17:08:51.515  INFO 1676 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-10-18 17:08:51.598  WARN 1676 --- [http-nio-8887-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in li/mapper/sql.xml
+### The error may involve li.mapper.sql.acountBySearch
+### The error occurred while executing a query
+### Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]
+2019-10-18 17:08:55.120  WARN 1676 --- [http-nio-8887-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in li/mapper/sql.xml
+### The error may involve li.mapper.sql.acountBySearch
+### The error occurred while executing a query
+### Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]
+2019-10-18 17:13:26.436 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.acountBySearch             : ==>  Preparing: select count(*) from question 
+2019-10-18 17:13:26.473 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.acountBySearch             : ==> Parameters: 
+2019-10-18 17:13:26.529 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.acountBySearch             : <==      Total: 1
+2019-10-18 17:13:26.533 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectBySearch             : ==>  Preparing: select * from question ORDER BY gmt_modified DESC limit ?,? 
+2019-10-18 17:13:26.534 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectBySearch             : ==> Parameters: 0(Integer), 5(Integer)
+2019-10-18 17:13:26.543 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectBySearch             : <==      Total: 5
+2019-10-18 17:13:26.566 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 17:13:26.566 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : ==> Parameters: 1(Long)
+2019-10-18 17:13:26.573 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 17:13:26.574 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 17:13:26.574 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : ==> Parameters: 2(Long)
+2019-10-18 17:13:26.578 DEBUG 1676 --- [http-nio-8887-exec-8] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:06:59.972  INFO 9552 --- [restartedMain] li.TestApplication                       : Starting TestApplication on DESKTOP-0NQCRR2 with PID 9552 (D:\code\test-master\target\classes started by Administrator in D:\code\test-master)
+2019-10-18 19:06:59.979  INFO 9552 --- [restartedMain] li.TestApplication                       : No active profile set, falling back to default profiles: default
+2019-10-18 19:07:00.154  INFO 9552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-18 19:07:00.154  INFO 9552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-18 19:07:01.493  WARN 9552 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[li]' package. Please check your configuration.
+2019-10-18 19:07:02.428  INFO 9552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2019-10-18 19:07:02.458  INFO 9552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-18 19:07:02.459  INFO 9552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-10-18 19:07:02.472  INFO 9552 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\jdk1.8.0_181\jre\bin;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;D:\桌面;;.]
+2019-10-18 19:07:02.653  INFO 9552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-18 19:07:02.654  INFO 9552 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2500 ms
+2019-10-18 19:07:03.363  INFO 9552 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-18 19:07:03.606  INFO 9552 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-10-18 19:07:03.983  INFO 9552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-18 19:07:04.224  INFO 9552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2019-10-18 19:07:04.240  INFO 9552 --- [restartedMain] li.TestApplication                       : Started TestApplication in 4.711 seconds (JVM running for 5.295)
+2019-10-18 19:07:07.590  INFO 9552 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-18 19:07:07.590  INFO 9552 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-18 19:07:07.603  INFO 9552 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2019-10-18 19:07:17.853  WARN 9552 --- [http-nio-8887-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in li/mapper/sql.xml
+### The error may involve li.mapper.sql.acountBySearch
+### The error occurred while executing a query
+### Cause: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]
+2019-10-18 19:07:25.145 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.acountBySearch             : ==>  Preparing: select count(*) from question 
+2019-10-18 19:07:25.224 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.acountBySearch             : ==> Parameters: 
+2019-10-18 19:07:25.272 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.acountBySearch             : <==      Total: 1
+2019-10-18 19:07:25.277 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectBySearch             : ==>  Preparing: select * from question ORDER BY gmt_modified DESC limit ?,? 
+2019-10-18 19:07:25.280 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectBySearch             : ==> Parameters: 0(Integer), 5(Integer)
+2019-10-18 19:07:25.303 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectBySearch             : <==      Total: 5
+2019-10-18 19:07:25.321 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 19:07:25.321 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : ==> Parameters: 1(Long)
+2019-10-18 19:07:25.327 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:07:25.329 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 19:07:25.329 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : ==> Parameters: 2(Long)
+2019-10-18 19:07:25.331 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:07:32.709 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByAccountId          : ==>  Preparing: select * from user where account_id = ? 
+2019-10-18 19:07:32.710 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByAccountId          : ==> Parameters: 52955427(String)
+2019-10-18 19:07:32.711 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByAccountId          : <==      Total: 1
+2019-10-18 19:07:32.712 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.updateUser                 : ==>  Preparing: update user set name=?,token=?,gmt_modified=?,avatar_url=? where id=? 
+2019-10-18 19:07:32.712 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.updateUser                 : ==> Parameters: 小黎(String), 155dc2ef-06f5-4a94-836c-e445d4f53d07(String), 1571396852711(Long), https://avatars0.githubusercontent.com/u/52955427?v=4(String), 1(Long)
+2019-10-18 19:07:32.725 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.updateUser                 : <==    Updates: 1
+2019-10-18 19:07:32.805 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:32.805 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:32.807 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:32.854 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:32.855 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:32.864 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:32.908 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.acountBySearch             : ==>  Preparing: select count(*) from question 
+2019-10-18 19:07:32.908 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.acountBySearch             : ==> Parameters: 
+2019-10-18 19:07:32.910 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.acountBySearch             : <==      Total: 1
+2019-10-18 19:07:32.910 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectBySearch             : ==>  Preparing: select * from question ORDER BY gmt_modified DESC limit ?,? 
+2019-10-18 19:07:32.911 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectBySearch             : ==> Parameters: 0(Integer), 5(Integer)
+2019-10-18 19:07:32.915 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectBySearch             : <==      Total: 5
+2019-10-18 19:07:32.916 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 19:07:32.916 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : ==> Parameters: 1(Long)
+2019-10-18 19:07:32.919 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:07:32.919 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 19:07:32.920 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : ==> Parameters: 2(Long)
+2019-10-18 19:07:32.924 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:07:33.173 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:33.173 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:33.175 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:33.198 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:33.198 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:33.200 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:33.246 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:33.247 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:33.247 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:33.248 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:33.249 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:33.255 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:33.322 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:33.323 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:33.325 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:33.335 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:33.335 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:33.340 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:33.363 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:33.364 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:33.367 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:33.373 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:33.374 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:33.375 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:33.660 DEBUG 9552 --- [http-nio-8887-exec-7] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:33.661 DEBUG 9552 --- [http-nio-8887-exec-7] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:33.662 DEBUG 9552 --- [http-nio-8887-exec-7] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:33.705 DEBUG 9552 --- [http-nio-8887-exec-7] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:33.705 DEBUG 9552 --- [http-nio-8887-exec-7] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:33.707 DEBUG 9552 --- [http-nio-8887-exec-7] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:40.333 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:40.333 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:40.335 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:40.369 DEBUG 9552 --- [http-nio-8887-exec-5] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:40.369 DEBUG 9552 --- [http-nio-8887-exec-5] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:40.415 DEBUG 9552 --- [http-nio-8887-exec-5] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:40.455 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.getById                    : ==>  Preparing: select * from question where id = ? 
+2019-10-18 19:07:40.456 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.getById                    : ==> Parameters: 24(Long)
+2019-10-18 19:07:40.457 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.getById                    : <==      Total: 1
+2019-10-18 19:07:40.458 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectById                 : ==>  Preparing: select * from user where id = ? 
+2019-10-18 19:07:40.458 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectById                 : ==> Parameters: 1(Long)
+2019-10-18 19:07:40.459 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectById                 : <==      Total: 1
+2019-10-18 19:07:40.460 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectRelated              : ==>  Preparing: select * from question where id!=? and tag regexp ? 
+2019-10-18 19:07:40.461 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectRelated              : ==> Parameters: 24(Long), java|spring|github|eclipse(String)
+2019-10-18 19:07:40.488 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectRelated              : <==      Total: 14
+2019-10-18 19:07:40.604 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.comment.listByParentId         : ==>  Preparing: select * from comment where parent_id=? and type=? ORDER BY gmt_create DESC 
+2019-10-18 19:07:40.605 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.comment.listByParentId         : ==> Parameters: 24(Long), 1(Integer)
+2019-10-18 19:07:40.625 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.comment.listByParentId         : <==      Total: 1
+2019-10-18 19:07:40.628 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByUsersId            : ==>  Preparing: select * from user where id in ( ? ) 
+2019-10-18 19:07:40.628 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByUsersId            : ==> Parameters: 1(Long)
+2019-10-18 19:07:40.630 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.selectByUsersId            : <==      Total: 1
+2019-10-18 19:07:40.670 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.updateViewCount            : ==>  Preparing: update question set view_count=view_count +1 where id=? 
+2019-10-18 19:07:40.671 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.updateViewCount            : ==> Parameters: 24(Long)
+2019-10-18 19:07:40.676 DEBUG 9552 --- [http-nio-8887-exec-5] li.mapper.sql.updateViewCount            : <==    Updates: 1
+2019-10-18 19:07:40.810 DEBUG 9552 --- [http-nio-8887-exec-9] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:40.810 DEBUG 9552 --- [http-nio-8887-exec-9] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:40.813 DEBUG 9552 --- [http-nio-8887-exec-9] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:40.841 DEBUG 9552 --- [http-nio-8887-exec-10] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:40.841 DEBUG 9552 --- [http-nio-8887-exec-10] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:40.844 DEBUG 9552 --- [http-nio-8887-exec-10] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:40.847 DEBUG 9552 --- [http-nio-8887-exec-9] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:40.848 DEBUG 9552 --- [http-nio-8887-exec-9] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:40.850 DEBUG 9552 --- [http-nio-8887-exec-9] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:40.890 DEBUG 9552 --- [http-nio-8887-exec-10] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:40.891 DEBUG 9552 --- [http-nio-8887-exec-10] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:40.892 DEBUG 9552 --- [http-nio-8887-exec-10] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:40.997 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:40.997 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:40.999 DEBUG 9552 --- [http-nio-8887-exec-2] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:41.013 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:41.013 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:41.015 DEBUG 9552 --- [http-nio-8887-exec-1] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:41.051 DEBUG 9552 --- [http-nio-8887-exec-2] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:41.051 DEBUG 9552 --- [http-nio-8887-exec-2] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:41.053 DEBUG 9552 --- [http-nio-8887-exec-2] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:41.058 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:41.058 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:41.060 DEBUG 9552 --- [http-nio-8887-exec-1] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:41.156 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:41.156 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:41.157 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:41.157 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:41.159 DEBUG 9552 --- [http-nio-8887-exec-4] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:41.162 DEBUG 9552 --- [http-nio-8887-exec-3] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:41.191 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:41.191 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:41.192 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:41.192 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:41.193 DEBUG 9552 --- [http-nio-8887-exec-3] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:41.194 DEBUG 9552 --- [http-nio-8887-exec-4] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:41.236 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:41.237 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:41.238 DEBUG 9552 --- [http-nio-8887-exec-6] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:41.267 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:41.267 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:41.269 DEBUG 9552 --- [http-nio-8887-exec-6] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:44.968 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : ==>  Preparing: select * from user where token = ? 
+2019-10-18 19:07:44.969 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : ==> Parameters: 155dc2ef-06f5-4a94-836c-e445d4f53d07(String)
+2019-10-18 19:07:44.970 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.sql.selectByToken              : <==      Total: 1
+2019-10-18 19:07:44.996 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : ==>  Preparing: select count(1) from notification where receiver=? and status=? 
+2019-10-18 19:07:44.997 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : ==> Parameters: 1(Long), 0(Integer)
+2019-10-18 19:07:44.998 DEBUG 9552 --- [http-nio-8887-exec-8] l.m.notification.acountByReceiverStatus  : <==      Total: 1
+2019-10-18 19:07:45.033 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.acountByReceiver  : ==>  Preparing: select count(1) from notification where receiver=? 
+2019-10-18 19:07:45.034 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.acountByReceiver  : ==> Parameters: 1(Long)
+2019-10-18 19:07:45.035 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.acountByReceiver  : <==      Total: 1
+2019-10-18 19:07:45.035 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.selectByReceiver  : ==>  Preparing: select * from notification where receiver=? ORDER BY gmt_create DESC limit ?,? 
+2019-10-18 19:07:45.035 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.selectByReceiver  : ==> Parameters: 1(Long), 0(Integer), 5(Integer)
+2019-10-18 19:07:45.040 DEBUG 9552 --- [http-nio-8887-exec-8] li.mapper.notification.selectByReceiver  : <==      Total: 5

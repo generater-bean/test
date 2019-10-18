@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="li.mapper.sql">
+	<resultMap type="li.model.User" id="setUser">
+	<id column="id" property="id" />
+	<result column="name" property="name"/>
+	<result column="token" property="token"/>
+	<result column="gmt_create" property="gmtCreate"/>
+	<result column="gmt_modified" property="gmtModified"/>
+	<result column="avatar_url" property="avatarUrl"/>
+	<result column="account_id" property="accountId"/>
+	</resultMap>
+	
+	<resultMap type="li.model.Question" id="setQuestion">
+	<id column="id" property="id"/>
+	<result column="title" property="title" />
+	<result column="description" property="description" />
+	<result column="tag" property="tag" />
+	<result column="gmt_create" property="gmtCreate" />
+	<result column="gmt_modified" property="gmtModified" />
+	<result column="creator" property="creator" />
+	<result column="view_count" property="viewCount" />
+	<result column="comment_count" property="commentCount" />
+	<result column="like_count" property="likeCount" />
+	</resultMap>
+	
+	
+  <insert id="addUser" parameterType="li.model.User">
+      insert into user (name,account_id,token,gmt_create,gmt_modified,avatar_url) values(#{name},#{accountId},#{token},#{gmtCreate},#{gmtModified},#{avatarUrl})
+               
+    </insert>
+    <select id="selectByToken" resultMap="setUser" parameterType="String">
+    	select * from user where token = #{token} 
+    </select>
+      <select id="selectById" resultMap="setUser" parameterType="long">
+    	select * from user where id = #{id}
+    </select>
+     <update id="updateUser" parameterType="li.model.User">
+       update user set name=#{name},token=#{token},gmt_modified=#{gmtModified},avatar_url=#{avatarUrl} where id=#{id}
+    </update>
+  <select id="selectByAccountId" resultMap="setUser" parameterType="String">
+    	select * from user where account_id = #{accountId}
+    </select>
+     <select id="selectByUsersId" resultMap="setUser" parameterType="java.util.List">
+    	select * from user where id in
+    	<foreach collection="list" index="index" item="item" open="("
+        separator="," close=")">
+        	#{item}
+    	</foreach>
+    </select>
+	 
+    
+    
+    
+      <select id="acountBySearch" resultType="java.lang.Integer" parameterType="li.dto.QuestionQueryDTO"  >
+    	 
+    	select count(*) from question  
+    	<where>
+    	<if test="search != null">
+    		and title regexp #{search}
+    	</if>
+    	</where>
+    	
+    </select>
+    <select id="selectBySearch" resultMap="setQuestion" parameterType="li.dto.QuestionQueryDTO"  >
+    	 
+    	select * from question  
+    	<where>
+    	<if test="search != null   ">
+    		and title regexp #{search}
+    	</if>
+    	</where>
+    	ORDER BY gmt_modified DESC limit #{page},#{size}
+    </select>
+    
+    <select id="count" resultType="java.lang.Integer" parameterType="li.dto.QuestionQueryDTO"  >
+    	select count(1)  from question 
+    </select>
+    
+    <select id="acountById" resultType="java.lang.Integer"  parameterType="long" >
+    	select count(1)  from question where creator=#{userId}
+    </select>
+     <select id="getById" resultMap="setQuestion" parameterType="long">
+    	select * from question  where id = #{id}  
+    </select>
+	<update id="updateViewCount" parameterType="long">
+       update question set view_count=view_count +1 where id=#{id}
+    </update>
+    <update id="updateCommetnCount" parameterType="long">
+       update question set comment_count=comment_count +1 where id=#{id}
+    </update>
+    <update id="questionUpdate" parameterType="li.model.Question">
+       update question set title=#{title},description=#{description},gmt_modified=#{gmtModified},tag=#{tag} where id=#{id}
+    </update>
+      <insert id="addTitle" parameterType="li.model.Question">
+      insert into question (title,description,gmt_create,gmt_modified,creator,tag) values(#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})
+               
+    </insert>
+    <select id="selectProfile" resultMap="setQuestion" parameterType="li.model.Profile" >
+    	select * from question where creator=#{userId} ORDER BY gmt_modified DESC limit #{offset},#{size}
+    </select>
+     <select id="selectAll" resultMap="setQuestion" parameterType="li.model.Profile" >
+    	select * from question  ORDER BY gmt_modified DESC  limit #{offset},#{size}
+    </select>
+    <select id="selectRelated" resultMap="setQuestion" parameterType="li.model.Question" >
+    	select * from question  where id!=#{id} and tag regexp #{tag}
+    </select>
+</mapper>
