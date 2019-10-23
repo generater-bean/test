@@ -2,21 +2,22 @@ package li.controller;
 	
 
 import java.util.UUID;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import li.dto.AccessTokenDTO;
 import li.dto.GithubUser;
+import li.dto.QQInfoDTO;
+import li.dto.QQUserDTO;
 import li.model.User;
 import li.provider.GithubProvider;
+import li.provider.QQProvider;
 import li.service.UserService;
 /**
 	 * 
@@ -25,6 +26,8 @@ import li.service.UserService;
 	 */
 @Controller
 public class AuthorizeController {
+	@Autowired
+	private QQProvider qqProvider;
 	@Autowired
 	private GithubProvider githubprovider;
 	@Autowired
@@ -38,6 +41,59 @@ public class AuthorizeController {
 	@Value("${github.redirect.url}")
 	private String redirecturl;
 
+	
+	@Value("${qq.client.id}")
+	private String QQclientId;
+	@Value("${qq.client.secret}")
+	private String QQclientSecret;
+	@Value("${qq.redirect.url}")
+	private String QQredirecturl;
+	
+	
+	@GetMapping("/connect")
+    public String qqcallback(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+        HttpSession session = request.getSession();
+        String code = request.getParameter("code");
+        String state = request.getParameter("state");
+        String uuid = (String) session.getAttribute("state");
+ 
+        if(uuid != null){
+            if(!uuid.equals(state)){
+                System.out.println("QQ,state错误");
+            }
+        }
+        QQInfoDTO qqInfoDTO=new QQInfoDTO();
+        qqInfoDTO.setClientId(QQclientId);
+        qqInfoDTO.setCode(code);
+        qqInfoDTO.setClientSecret(QQclientSecret);
+        qqInfoDTO.setRedirectUri(QQredirecturl);
+        qqInfoDTO.setAccessToken(qqProvider.getAccessToken(qqInfoDTO));//Step2：通过Authorization Code获取Access Token
+        qqInfoDTO.setOpenId(qqProvider.getOpenId(qqInfoDTO)); //Step3: 获取回调后的 openid 值
+        QQUserDTO qqUserDTO=qqProvider.getUser(qqInfoDTO); //Step4：获取QQ用户信息
+
+        if(qqUserDTO!=null ) {
+			User user=new User();
+			String  token=UUID.randomUUID().toString();
+			user.setToken(token);
+			user.setName(qqUserDTO.getNickname());
+			user.setAccountId(String.valueOf(qqUserDTO.getOpenid()));
+			user.setAvatarUrl(qqUserDTO.getFigureurl_qq_2());
+			userservice.createOrUpdate(user);
+			response.addCookie(new Cookie("token", token));
+			//登陆成功，写cookie和session
+			request.getSession().setAttribute("user", user);   //传user给网页
+			return "redirect:/";
+		}else {
+			//登录失败
+			return "redirect:/";
+		}
+    }
+	
+	
+	
+	
+	
 	
 	@GetMapping("/callback")
 	public String  callback(@RequestParam(name="code")String code,
@@ -62,7 +118,7 @@ public class AuthorizeController {
 			userservice.createOrUpdate(user);
 			response.addCookie(new Cookie("token", token));
 			//登陆成功，写cookie和session
-			request.getSession().setAttribute("user", githubUser);   //传user给网页
+			request.getSession().setAttribute("user", user);   //传user给网页
 			return "redirect:/";
 		}else {
 			//登录失败
