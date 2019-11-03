@@ -19,11 +19,20 @@
 			window.localStorage.removeItem("closable");
 		}
 	}
+	function openme(){
+	document.getElementById('login-interface').style.display='block';
+	document.getElementById('login-background').style.display='block';
+	}
+	function closeLogin(){
+	document.getElementById('login-interface').style.display='none';
+	document.getElementById('login-background').style.display='none';
+	}
+
 
 </script>
 <body>
 <div th:insert="navigation :: nav"></div>
-<div class="container-fluid main">
+<div class="container-fluid main" style="z-index: 1">
   <div class="row">
     <div class="col-lg-9 col-md-12	col-sm-12	col-xs-12 " >
     
@@ -82,6 +91,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 <div th:insert="footer :: foot"></div>
 </body>
 </html>

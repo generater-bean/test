@@ -17,6 +17,10 @@ import li.model.User;
 public class UserService {
 	@Autowired
 	private SqlDao sqlDao;
+	/**
+	 * 第三方登录
+	 * @param user
+	 */
 	public void createOrUpdate(User user) {
 		SqlSession s =SqlSessionmapper.getSqlSession();
 		sqlDao =new SqlDao(s);
@@ -34,6 +38,12 @@ public class UserService {
 			dbUser.setAvatarUrl(user.getAvatarUrl());
 			sqlDao.update(dbUser);
 		}
+	}
+	public User localUserLogin(User user) {
+		SqlSession s =SqlSessionmapper.getSqlSession();
+		sqlDao =new SqlDao(s);
+		User  dbUser=sqlDao.selectByNameAndAccountId(user);
+		return dbUser;
 	}
 	
 }

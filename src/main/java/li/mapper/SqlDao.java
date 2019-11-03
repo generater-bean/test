@@ -127,5 +127,10 @@ public class SqlDao {
 		List<Question> questions= session.selectList("li.mapper.sql.selectBySearch", questionQueryDTO);
 		return questions;
 	}
+
+	public User selectByNameAndAccountId(User user) {
+		User dbuser=session.selectOne("li.mapper.sql.selectByNameAndAccountId", user);
+		return dbuser;
+	}
 	
 }

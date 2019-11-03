@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href= "/community.css"/>
+</head>
+<script type="text/javascript">
+
+	function openme(){
+	document.getElementById('login-interface').style.display='block';
+	document.getElementById('login-background').style.display='block';
+	}
+	function closeLogin(){
+	document.getElementById('login-interface').style.display='none';
+	document.getElementById('login-background').style.display='none';
+	}
+
+
+</script>
+<body>
+<div th:insert="navigation :: nav"></div>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">注册</button>
+    </div>
+  </div>
+</form>
+<div th:insert="footer :: foot"></div>
+</body>
+
+</html>
+

@@ -49,7 +49,13 @@ public class AuthorizeController {
 	@Value("${qq.redirect.url}")
 	private String QQredirecturl;
 	
-	
+	/**
+	 * qq登录
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/connect")
     public String qqcallback(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -74,13 +80,13 @@ public class AuthorizeController {
 
         if(qqUserDTO!=null ) {
 			User user=new User();
-			String  token=UUID.randomUUID().toString();
-			user.setToken(token);
+			//String  token=UUID.randomUUID().toString();
+			user.setToken(qqInfoDTO.getAccessToken());
 			user.setName(qqUserDTO.getNickname());
 			user.setAccountId(String.valueOf(qqUserDTO.getOpenid()));
 			user.setAvatarUrl(qqUserDTO.getFigureurl_qq_2());
 			userservice.createOrUpdate(user);
-			response.addCookie(new Cookie("token", token));
+			response.addCookie(new Cookie("token", qqInfoDTO.getAccessToken()));
 			//登陆成功，写cookie和session
 			request.getSession().setAttribute("user", user);   //传user给网页
 			return "redirect:/";
@@ -94,7 +100,14 @@ public class AuthorizeController {
 	
 	
 	
-	
+	/**
+	 * github登录
+	 * @param code
+	 * @param state
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@GetMapping("/callback")
 	public String  callback(@RequestParam(name="code")String code,
 							@RequestParam(name="state")String state
@@ -126,6 +139,35 @@ public class AuthorizeController {
 		}
 		
 	}
+	/**
+	 * 本地用户登录
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@GetMapping("/localLogin")
+	public String  localLogin(HttpServletRequest request,
+			@RequestParam(name="localUser")String localUser,
+			@RequestParam(name="localUserpwd")String localUserpwd,
+			HttpServletResponse response) {
+		User user=new User();
+		//String  token=UUID.randomUUID().toString();
+		//user.setToken(token);
+		user.setName(localUser);
+		user.setAccountId(String.valueOf(localUserpwd));
+		//user.setAvatarUrl(githubUser.getAvatar_url());
+		User dbuser =userservice.localUserLogin(user);
+		if(dbuser!=null) {
+		response.addCookie(new Cookie("token", dbuser.getToken()));
+		//登陆成功，写cookie和session
+		request.getSession().setAttribute("user", user);   //传user给网页
+		return "redirect:/";
+		}else {
+			return "redirect:/";
+		}
+		
+	}
+	
 	@GetMapping("/logout")
 	public String  logout(	HttpServletRequest request,
 							HttpServletResponse response) {
@@ -136,4 +178,8 @@ public class AuthorizeController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/register")
+	public String register(){
+		return "register";
+	}
 }
