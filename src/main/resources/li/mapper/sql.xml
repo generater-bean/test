@@ -55,7 +55,10 @@
         	#{item}
     	</foreach>
     </select>
-	 
+    
+	 <select id="selectByName" resultMap="setUser" parameterType="String">
+    	select * from user where name = #{name}
+    </select>
     
     
     

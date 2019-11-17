@@ -178,8 +178,4 @@ public class AuthorizeController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/register")
-	public String register(){
-		return "register";
-	}
 }

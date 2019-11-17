@@ -132,5 +132,12 @@ public class SqlDao {
 		User dbuser=session.selectOne("li.mapper.sql.selectByNameAndAccountId", user);
 		return dbuser;
 	}
+
+
+
+	public User selectByName(String name) {
+		User dbuser=session.selectOne("li.mapper.sql.selectByName", name);
+		return dbuser;
+	}
 	
 }

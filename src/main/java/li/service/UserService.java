@@ -3,7 +3,6 @@ package li.service;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import li.mapper.SqlDao;
 import li.mapper.SqlSessionmapper;
 import li.model.User;
@@ -39,11 +38,35 @@ public class UserService {
 			sqlDao.update(dbUser);
 		}
 	}
+	/**
+	 * localUserlogin
+	 * @param user
+	 * @return
+	 */
 	public User localUserLogin(User user) {
 		SqlSession s =SqlSessionmapper.getSqlSession();
 		sqlDao =new SqlDao(s);
 		User  dbUser=sqlDao.selectByNameAndAccountId(user);
 		return dbUser;
+	}
+	/**
+	 * addRegister
+	 * @param user
+	 */
+	public boolean addRegister(User user) {
+		SqlSession s =SqlSessionmapper.getSqlSession();
+		sqlDao =new SqlDao(s);
+		User  dbUser=sqlDao.selectByName(user.getName());
+		if(dbUser==null	) {
+			//插入
+			user.setGmtCreate(System.currentTimeMillis());
+			user.setGmtModified(user.getGmtCreate());
+			sqlDao.addUser(user);
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 	
 }

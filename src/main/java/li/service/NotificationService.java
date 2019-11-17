@@ -31,15 +31,18 @@ public class NotificationService {
 		PaginationDTO<NotificationDTO> paginationDTO = new PaginationDTO<>();
 		int totalCount = notificationDao.acountByReceiver(userId); // 统计
 		paginationDTO.setpagination(totalCount, page, size);
-
+		
 		// size*(page-1);计算页数
 		Profile profile = new Profile();
 		Integer offset = size * (paginationDTO.getPage() - 1);
+		if(offset<0) {
+			offset=0;
+		}	
 		profile.setOffset(offset);
 		profile.setSize(size);
 		profile.setUserId(userId);
 		List<Notification> notifications = notificationDao.selectByReceiver(profile);
-		if (notifications.size() == 0) {
+		if (notifications.size() == 0||notifications ==null) {
 			return paginationDTO;
 		}
 		List<NotificationDTO> notificationDTOs = new ArrayList<>();

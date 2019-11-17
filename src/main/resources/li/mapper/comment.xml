@@ -28,6 +28,7 @@
 	<select id="selectById" resultMap="setComment" parameterType="long">
 	select * from comment where id=#{id}
 	</select>
+	
 	<select id="listByParentId" resultMap="setComment" parameterType="li.model.Comment">
 	select * from comment where parent_id=#{parentId} and type=#{type} ORDER BY gmt_create DESC
 	

@@ -39,12 +39,10 @@ public class notificationDao {
 		
 	}
 	public List<Notification> selectByReceiver(Profile profile) {
-		List<Notification> notifications=null;
-		try {
-			notifications = session.selectList("li.mapper.notification.selectByReceiver",profile);
-		} catch (Exception e) {
-			
-		}
+		
+		
+		List<Notification> notifications = session.selectList("li.mapper.notification.selectByReceiver",profile);
+		
 		
 		return notifications;
 	}
