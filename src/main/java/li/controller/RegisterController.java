@@ -31,12 +31,12 @@ public class RegisterController {
 		
 		model.addAttribute("localUserPassword",localUserPassword);
 		if(localUserName==null||localUserName=="") {
-			model.addAttribute("error","标题不能为空");
-			return "publish";
+			model.addAttribute("error","用户名不能为空");
+			return "register";
 		}
 		if(localUserPassword==null||localUserPassword=="") {
-			model.addAttribute("error","标题不能为空");
-			return "publish";
+			model.addAttribute("error","密码不能为空");
+			return "register";
 		}
 		
 		
@@ -45,11 +45,15 @@ public class RegisterController {
 		user.setToken(token);
 		user.setName(localUserName);
 		user.setAccountId(localUserPassword);
-		user.setAvatarUrl("https://avatars2.githubusercontent.com/u/55047014?v=4");
-		if(!userservice.addRegister(user)) {
+		user.setAvatarUrl("http://pics.sc.chinaz.com/Files/pic/icons128/7570/e10.png");
+		if(userservice.addRegister(user)) {
 			model.addAttribute("localUserName",localUserName);
+			return "redirect:/";
+		}else {
+			model.addAttribute("error","该用户应被注册！");
+			return "register";
 		}
-		return "redirect:/";
+		
 		
 	}
 	
