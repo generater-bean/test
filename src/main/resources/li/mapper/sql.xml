@@ -90,6 +90,12 @@
     <select id="acountById" resultType="java.lang.Integer"  parameterType="long" >
     	select count(1)  from question where creator=#{userId}
     </select>
+    
+      <select id="acountUser" resultType="java.lang.Integer"  parameterType="long" >
+    	select count(1)  from user 
+    </select>
+    
+    
      <select id="getById" resultMap="setQuestion" parameterType="long">
     	select * from question  where id = #{id}  
     </select>
@@ -109,6 +115,10 @@
     <select id="selectProfile" resultMap="setQuestion" parameterType="li.model.Profile" >
     	select * from question where creator=#{userId} ORDER BY gmt_modified DESC limit #{offset},#{size}
     </select>
+     <select id="selectUser" resultMap="setUser" parameterType="li.model.Profile" >
+    	select * from user  ORDER BY gmt_modified DESC limit #{offset},#{size}
+    </select>
+    
      <select id="selectAll" resultMap="setQuestion" parameterType="li.model.Profile" >
     	select * from question  ORDER BY gmt_modified DESC  limit #{offset},#{size}
     </select>

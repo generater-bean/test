@@ -139,5 +139,16 @@ public class SqlDao {
 		User dbuser=session.selectOne("li.mapper.sql.selectByName", name);
 		return dbuser;
 	}
+
+	public List<User> selectUser(Profile profile) {
+		List<User> dbuser=session.selectList("li.mapper.sql.selectUser", profile);
+		return dbuser;
+	}
+
+	public Integer acountUser() {
+		// TODO Auto-generated method stub
+		Integer totalcount	=session.selectOne("li.mapper.sql.acountUser");
+		return totalcount;
+	}
 	
 }

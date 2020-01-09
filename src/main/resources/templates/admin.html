@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${sectionName}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../community.css" />
+</head>
+<body>
+	<div th:insert="navigation :: nav"></div>
+	<div class="container-fluid main profile">
+		<div class="row">
+		<!-- 左边内容 -->
+			<div class="col-lg-9 col-md-12	col-sm-12	col-xs-12 ">
+				<h2>
+					<span th:text="${sectionName}"></span>
+				</h2>
+				<hr>
+				
+					<!-- 用户管理 -->
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
+					th:if="${section=='role'}">
+
+
+					<table class="table table-hover" >
+						<tr>
+							<th scope="row" th:text="编号"></th>
+							<td >用户名</td>
+							<td >注册时间</td>
+							<td>权限</td>
+							<td>普通用户</td>
+						</tr>
+						<tr th:each="user:${paginations.data}">
+							<th scope="row" th:text="${user.id}"></th>
+							<td	th:text="${user.name}"></td>
+							<td	th:text="${user.gmtCreate}"></td>
+							<td	th:text="${user.gmtCreate}"></td>
+							<td	th:text="${user.gmtCreate}"></td>
+						</tr>
+					</table>
+
+				</div>
+					<!-- 用户管理 -->
+
+				
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 ">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li th:if="${paginations.showFirstPage}"><a
+								th:href="@{'/admin/'+${section}(page=${1})}"
+								aria-label="Previous"> <span aria-hidden="true">&lt;&lt;</span>
+							</a></li>
+							<li th:if="${paginations.showPrevious}"><a
+								th:href="@{'/admin/'+${section}(page=${paginations.page-1})}"
+								aria-label="Previous"> <span aria-hidden="true">&lt;</span>
+							</a></li>
+							<li th:each="page:${paginations.pages}"
+								th:class="${paginations.page==page}?'active':''"><a
+								th:href="@{'/admin/'+${section}(page=${page})}"
+								th:text="${page}"></a></li>
+
+							<li th:if="${paginations.showNext}"><a
+								th:href="@{'/admin/'+${section}(page=${paginations.page+1})}"
+								aria-label="Next"> <span aria-hidden="true">&gt;</span>
+							</a></li>
+							<li th:if="${paginations.showEndPage}"><a
+								th:href="@{'/admin/'+${section}(page=${paginations.totalPage})}"
+								aria-label="Previous"> <span aria-hidden="true">&gt;&gt;</span>
+							</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			
+			
+		<!-- 右边内容 -->
+		
+		
+			<div class="col-lg-3 col-md-12	col-sm-12	col-xs-12 ">
+				<div class="list-group  section">
+					<a href="/admin/role"
+						th:class="${section=='role'}?'active  list-group-item':'list-group-item'">用户管理
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+<div th:insert="footer :: foot"></div>
+</body>
+</html>

@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import li.dto.commentDTO;
 import li.enums.CommentTypeEnum;
 import li.enums.NotificationStatusEnum;
@@ -39,7 +41,7 @@ public class CommentService {
 	@Autowired
 	private notificationDao notificationDao;
 
-	// @Transactional
+	//@Transactional
 	public void insertComm(Comment comment, User commentator) {
 		SqlSession s = SqlSessionmapper.getSqlSession();
 		sqlDao = new SqlDao(s);
