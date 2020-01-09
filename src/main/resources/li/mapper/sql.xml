@@ -13,6 +13,7 @@
 	<result column="gmt_modified" property="gmtModified"/>
 	<result column="avatar_url" property="avatarUrl"/>
 	<result column="account_id" property="accountId"/>
+	<result column="role" property="role"/>
 	</resultMap>
 	
 	<resultMap type="li.model.Question" id="setQuestion">
@@ -116,7 +117,7 @@
     	select * from question where creator=#{userId} ORDER BY gmt_modified DESC limit #{offset},#{size}
     </select>
      <select id="selectUser" resultMap="setUser" parameterType="li.model.Profile" >
-    	select * from user  ORDER BY gmt_modified DESC limit #{offset},#{size}
+    	select * from user  ORDER BY id  limit #{offset},#{size}
     </select>
     
      <select id="selectAll" resultMap="setQuestion" parameterType="li.model.Profile" >

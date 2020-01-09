@@ -8,7 +8,7 @@ public class User {
 	private long gmtCreate;
 	private long gmtModified;
 	private String   avatarUrl;
-
+	private  long  role;
 	public String getName() {
 		return name;
 	}
@@ -50,6 +50,12 @@ public class User {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public long getRole() {
+		return role;
+	}
+	public void setRole(long role) {
+		this.role = role;
 	}
 
 	

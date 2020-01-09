@@ -8,6 +8,7 @@ public class UserDTO {
 	private long gmtCreate;
 	private long gmtModified;
 	private String   avatarUrl;
+	private  long  role;
 	public long getId() {
 		return id;
 	}
@@ -49,5 +50,11 @@ public class UserDTO {
 	}
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
+	}
+	public long getRole() {
+		return role;
+	}
+	public void setRole(long role) {
+		this.role = role;
 	}
 }

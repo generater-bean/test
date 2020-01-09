@@ -29,14 +29,14 @@
 							<th scope="row" th:text="编号"></th>
 							<td >用户名</td>
 							<td >注册时间</td>
-							<td>权限</td>
+							<td>角色</td>
 							<td>普通用户</td>
 						</tr>
 						<tr th:each="user:${paginations.data}">
 							<th scope="row" th:text="${user.id}"></th>
 							<td	th:text="${user.name}"></td>
-							<td	th:text="${user.gmtCreate}"></td>
-							<td	th:text="${user.gmtCreate}"></td>
+							<td	th:text=" ${#dates.format(user.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+							<td	th:text="${user.role==1}?'普通用户':'管理员'"></td>
 							<td	th:text="${user.gmtCreate}"></td>
 						</tr>
 					</table>
