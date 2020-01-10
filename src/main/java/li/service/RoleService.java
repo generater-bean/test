@@ -96,6 +96,12 @@ public class RoleService {
 
 		return paginationDTO;
 	}
+	public void deleteQuestion(long id) {
+		// TODO Auto-generated method stub
+		SqlSession s = SqlSessionmapper.getSqlSession();
+		adminDao =new adminDao(s);
+		adminDao.deleteQuestion(id);
+	}
 	
 	/**
 	 * 删除

@@ -62,7 +62,7 @@ public class AdminController {
 	}
 	@GetMapping("delete/{id}")
 	public String delQuestion(@PathVariable(name="id")long id) {
-		
+		roleService.deleteQuestion(id);
 		return "redirect:../admin/theme";
 		
 	}

@@ -1,11 +1,8 @@
 package li.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
-
-import li.model.Comment;
 import li.model.Profile;
 import li.model.Question;
 import li.model.User;
@@ -50,6 +47,11 @@ public class adminDao {
 		User user=session.selectOne("li.mapper.admin.selectById", id);
 		
 		return user;
+	}
+	public void deleteQuestion(long id) {
+		// TODO Auto-generated method stub
+		session.delete("li.mapper.admin.deleteQuestion", id);
+		session.commit();
 	}
 	
 }

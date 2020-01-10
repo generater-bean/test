@@ -45,4 +45,7 @@
      <select id="selectById" resultMap="setUser" parameterType="long">
     	select * from user where id = #{id} 
     </select>
+    <delete id="deleteQuestion" parameterType="long">
+    DELETE question,comment ,notification FROM question LEFT JOIN comment ON question.id = comment.parent_id LEFT JOIN notification on question.id = notification.outerId WHERE question.id =#{id} 
+    </delete>
 </mapper>
