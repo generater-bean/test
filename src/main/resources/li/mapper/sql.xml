@@ -92,9 +92,7 @@
     	select count(1)  from question where creator=#{userId}
     </select>
     
-      <select id="acountUser" resultType="java.lang.Integer"  parameterType="long" >
-    	select count(1)  from user 
-    </select>
+  
     
     
      <select id="getById" resultMap="setQuestion" parameterType="long">

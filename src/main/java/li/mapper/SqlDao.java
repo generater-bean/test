@@ -145,10 +145,6 @@ public class SqlDao {
 		return dbuser;
 	}
 
-	public Integer acountUser() {
-		// TODO Auto-generated method stub
-		Integer totalcount	=session.selectOne("li.mapper.sql.acountUser");
-		return totalcount;
-	}
+
 	
 }

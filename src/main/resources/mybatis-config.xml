@@ -18,6 +18,6 @@
      <mapper resource="li/mapper/sql.xml"/>
      <mapper resource="li/mapper/comment.xml"/>
      <mapper resource="li/mapper/notification.xml"/>
-     
+     <mapper resource="li/mapper/admin.xml"/>
   </mappers>
 </configuration>

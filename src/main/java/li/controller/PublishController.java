@@ -40,7 +40,16 @@ public class PublishController {
 	
 	//发布页面
 	@GetMapping("publish")
-	public String publish (Model model) {
+	public String publish (HttpServletRequest request,Model model) {
+	//获取登录的user信息
+		
+		User user=(User)request.getSession().getAttribute("user");
+				
+	    if(user==null) {
+	    	model.addAttribute("error","用户未登录");
+	    	return "redirect:/";
+	    		}
+		  
 		model.addAttribute("tags",TagCache.get());
 		return "publish";
 	}

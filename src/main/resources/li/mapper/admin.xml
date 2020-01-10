@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="li.mapper.admin">
+<resultMap type="li.model.User" id="setUser">
+	<id column="id" property="id" />
+	<result column="name" property="name"/>
+	<result column="token" property="token"/>
+	<result column="gmt_create" property="gmtCreate"/>
+	<result column="gmt_modified" property="gmtModified"/>
+	<result column="avatar_url" property="avatarUrl"/>
+	<result column="account_id" property="accountId"/>
+	<result column="role" property="role"/>
+	</resultMap>
+	
+	<resultMap type="li.model.Question" id="setQuestion">
+	<id column="id" property="id"/>
+	<result column="title" property="title" />
+	<result column="description" property="description" />
+	<result column="tag" property="tag" />
+	<result column="gmt_create" property="gmtCreate" />
+	<result column="gmt_modified" property="gmtModified" />
+	<result column="creator" property="creator" />
+	<result column="view_count" property="viewCount" />
+	<result column="comment_count" property="commentCount" />
+	<result column="like_count" property="likeCount" />
+	</resultMap>
+	
+	
+    <select id="acountUser" resultType="java.lang.Integer"  parameterType="long" >
+    	select count(1)  from user 
+    </select>
+     <select id="selectUser" resultMap="setUser" parameterType="li.model.Profile" >
+    	select * from user  ORDER BY id  limit #{offset},#{size}
+    </select>
+      <select id="count" resultType="java.lang.Integer" parameterType="li.dto.QuestionQueryDTO"  >
+    	select count(1)  from question 
+    </select>
+       <select id="selectAll" resultMap="setQuestion" parameterType="li.model.Profile" >
+    	select * from question  ORDER BY id  limit #{offset},#{size}
+    </select>
+     <select id="selectById" resultMap="setUser" parameterType="long">
+    	select * from user where id = #{id} 
+    </select>
+</mapper>
