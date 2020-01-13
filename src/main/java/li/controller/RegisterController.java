@@ -43,6 +43,7 @@ public class RegisterController {
 		User user =new User();
 		String  token=UUID.randomUUID().toString();
 		user.setToken(token);
+		user.setRole(1);
 		user.setName(localUserName);
 		user.setAccountId(localUserPassword);
 		user.setAvatarUrl("http://pics.sc.chinaz.com/Files/pic/icons128/7570/e10.png");

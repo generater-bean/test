@@ -46,6 +46,9 @@
     	select * from user where id = #{id} 
     </select>
     <delete id="deleteQuestion" parameterType="long">
-    DELETE question,comment ,notification FROM question LEFT JOIN comment ON question.id = comment.parent_id LEFT JOIN notification on question.id = notification.outerId WHERE question.id =#{id} 
+    DELETE question,comment ,notification FROM question LEFT JOIN notification on question.id = notification.outerId LEFT JOIN comment ON question.id = comment.parent_id  WHERE question.id =#{id} 
+    </delete>
+    <delete id="deleteRole" parameterType="long">
+    DELETE question,comment ,notification ,user FROM user LEFT JOIN notification ON user.id= notification.receiver LEFT JOIN comment on user.id = comment.commentator  LEFT JOIN question ON user.id = question.creator  WHERE user.id =#{id} 
     </delete>
 </mapper>

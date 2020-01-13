@@ -102,6 +102,12 @@ public class RoleService {
 		adminDao =new adminDao(s);
 		adminDao.deleteQuestion(id);
 	}
+	public void deleteRole(long id) {
+		// TODO Auto-generated method stub
+		SqlSession s = SqlSessionmapper.getSqlSession();
+		adminDao =new adminDao(s);
+		adminDao.deleteRole(id);
+	}
 	
 	/**
 	 * 删除

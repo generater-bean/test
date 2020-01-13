@@ -53,5 +53,10 @@ public class adminDao {
 		session.delete("li.mapper.admin.deleteQuestion", id);
 		session.commit();
 	}
+	public void deleteRole(long id) {
+		// TODO Auto-generated method stub
+		session.delete("li.mapper.admin.deleteRole", id);
+		session.commit();
+	}
 	
 }

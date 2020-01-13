@@ -31,7 +31,7 @@
 	
 	
   <insert id="addUser" parameterType="li.model.User">
-      insert into user (name,account_id,token,gmt_create,gmt_modified,avatar_url) values(#{name},#{accountId},#{token},#{gmtCreate},#{gmtModified},#{avatarUrl})
+      insert into user (name,account_id,token,gmt_create,gmt_modified,avatar_url,role) values(#{name},#{accountId},#{token},#{gmtCreate},#{gmtModified},#{avatarUrl},#{role})
                
     </insert>
     <select id="selectByToken" resultMap="setUser" parameterType="String">
