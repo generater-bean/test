@@ -19,7 +19,7 @@ import li.model.Question;
 import li.model.User;
 
 @Service
-public class RoleService {
+public class AdminService {
 	@Autowired
 	private adminDao adminDao;
 	/** 用户管理
@@ -96,20 +96,40 @@ public class RoleService {
 
 		return paginationDTO;
 	}
+
+	/**
+	 * 删除主题
+	 */
 	public void deleteQuestion(long id) {
 		// TODO Auto-generated method stub
 		SqlSession s = SqlSessionmapper.getSqlSession();
 		adminDao =new adminDao(s);
 		adminDao.deleteQuestion(id);
 	}
+	/**
+	 * 删除用户
+	 */
 	public void deleteRole(long id) {
 		// TODO Auto-generated method stub
 		SqlSession s = SqlSessionmapper.getSqlSession();
 		adminDao =new adminDao(s);
 		adminDao.deleteRole(id);
 	}
-	
 	/**
-	 * 删除
+	 * 封印主题
 	 */
+	public void LimitQuestion(long id) {
+		// TODO Auto-generated method stub
+		SqlSession s = SqlSessionmapper.getSqlSession();
+		adminDao =new adminDao(s);
+		Question question=new Question();
+		question.setId(id);
+		int likecount=adminDao.selectLikeCount(question.getId());
+		if(likecount==0) {
+			question.setLikeCount(1);
+		}else {
+			question.setLikeCount(0);
+		}
+		adminDao.LimitQuestion(question);
+	}
 }

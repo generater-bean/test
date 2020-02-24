@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import li.dto.AccessTokenDTO;
@@ -149,7 +150,8 @@ public class AuthorizeController {
 	public String  localLogin(HttpServletRequest request,
 			@RequestParam(name="localUser")String localUser,
 			@RequestParam(name="localUserpwd")String localUserpwd,
-			HttpServletResponse response) {
+			HttpServletResponse response,Model model ) {
+		
 		User user=new User();
 		//String  token=UUID.randomUUID().toString();
 		//user.setToken(token);
@@ -163,6 +165,7 @@ public class AuthorizeController {
 		request.getSession().setAttribute("user", user);   //传user给网页
 		return "redirect:/";
 		}else {
+			
 			return "redirect:/";
 		}
 		

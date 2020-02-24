@@ -70,17 +70,24 @@
     	<if test="search != null">
     		and title regexp #{search}
     	</if>
+    	<if test="page !=null">
+    		and like_count=0
+    	</if>
     	</where>
-    	
+    	 
     </select>
     <select id="selectBySearch" resultMap="setQuestion" parameterType="li.dto.QuestionQueryDTO"  >
     	 
     	select * from question  
     	<where>
     	<if test="search != null   ">
-    		and title regexp #{search}
+    		and title regexp #{search} 
+    	</if>
+    	<if test="page !=null">
+    		and like_count=0
     	</if>
     	</where>
+    	 
     	ORDER BY gmt_modified DESC limit #{page},#{size}
     </select>
     

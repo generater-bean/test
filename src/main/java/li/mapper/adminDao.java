@@ -58,5 +58,17 @@ public class adminDao {
 		session.delete("li.mapper.admin.deleteRole", id);
 		session.commit();
 	}
-	
+	public void LimitQuestion(Question question) {
+		// TODO Auto-generated method stub
+		session.update("li.mapper.admin.LimitQuestion", question);
+		session.commit();
+	}
+	public int selectLikeCount(long id) {
+		// TODO Auto-generated method stub
+		int likeCount=session.selectOne("li.mapper.admin.selectLikeCount", id);
+		
+		return likeCount;
+		
+	}
+
 }

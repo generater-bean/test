@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import li.dto.PaginationDTO;
 import li.dto.QuestionDTO;
 import li.dto.UserDTO;
+import li.model.Question;
 import li.model.User;
-import li.service.RoleService;
+import li.service.AdminService;
 import li.service.UserService;
 
 @Controller
 public class AdminController {
 	@Autowired 
-	private RoleService roleService;
+	private AdminService adminService;
 	@Autowired
 	private UserService userservice;
 	
@@ -47,7 +48,7 @@ public class AdminController {
 					model.addAttribute("section", "role");
 					model.addAttribute("sectionName", "用户管理");
 					// 获取用户的信息和问题
-					PaginationDTO<UserDTO> paginationsDto1 =roleService.selectUserInfo(page, size);
+					PaginationDTO<UserDTO> paginationsDto1 =adminService.selectUserInfo(page, size);
 					model.addAttribute("paginations", paginationsDto1);
 					break;
 					
@@ -55,7 +56,7 @@ public class AdminController {
 					model.addAttribute("section", "theme");
 					model.addAttribute("sectionName", "主题管理");
 					// 获取用户的信息和问题
-					PaginationDTO<QuestionDTO> paginationsDto2 =roleService.selectQuestionInfo(page, size);
+					PaginationDTO<QuestionDTO> paginationsDto2 =adminService.selectQuestionInfo(page, size);
 					model.addAttribute("paginations", paginationsDto2);
 					break;
 
@@ -67,13 +68,21 @@ public class AdminController {
 	}
 	@GetMapping("deleteQuestion/{id}")
 	public String delQuestion(@PathVariable(name="id")long id) {
-		roleService.deleteQuestion(id);
+		adminService.deleteQuestion(id);
 		return "redirect:../admin/theme";
 		
 	}
+	@GetMapping("LimitQuestion/{id}")
+	public String LimitQuestion(@PathVariable(name="id")long id) {
+		
+		adminService.LimitQuestion(id);
+		return "redirect:../admin/theme";
+		
+	}
+	
 	@GetMapping("deleteRole/{id}")
 	public String delRole(@PathVariable(name="id")long id) {
-		roleService.deleteRole(id);
+		adminService.deleteRole(id);
 		return "redirect:../admin/role";
 		
 	}

@@ -28,8 +28,12 @@
 	<result column="comment_count" property="commentCount" />
 	<result column="like_count" property="likeCount" />
 	</resultMap>
-	
-	
+	<update id="LimitQuestion" parameterType="li.model.Question">
+       update question set like_count=#{likeCount}  where id = #{id} 
+    </update>
+	<select id="selectLikeCount" resultType="java.lang.Integer"  parameterType="long" >
+    	select like_count  from question where id = #{id} 
+    </select>
     <select id="acountUser" resultType="java.lang.Integer"  parameterType="long" >
     	select count(1)  from user 
     </select>
