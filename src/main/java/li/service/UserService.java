@@ -68,5 +68,14 @@ public class UserService {
 		}
 		
 	}
-	
+  /**
+   * 更新用户资料
+   * @param user
+   */
+	public void updateUserInfo(User user) {
+		// TODO Auto-generated method stub
+		SqlSession s =SqlSessionmapper.getSqlSession();
+		sqlDao =new SqlDao(s);
+		sqlDao.updateUserInfo(user);
+	}
 }

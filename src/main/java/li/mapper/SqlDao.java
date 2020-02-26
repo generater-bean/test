@@ -145,6 +145,12 @@ public class SqlDao {
 		return dbuser;
 	}
 
+	public void updateUserInfo(User user) {
+		// TODO Auto-generated method stub
+		session.update("li.mapper.sql.updateUserInfo",user);
+		session.commit();
+	}
+
 
 	
 }

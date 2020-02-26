@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户资料</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href= "/community.css"/>
+</head>
+<body  style="background-color: black;">
+<form action="updateInfo"  method="post" style="   
+	 height: 720px;
+    width: 360px;
+    margin-top: 100px;
+    margin-left: 700px">
+    <div class="form-group">
+    <span>用户名：</span>
+    <label  th:text="${session.user.name}"></label>
+  </div>
+  <div class="form-group">
+  <div>
+   <span>昵称: </span> 
+   <label th:text=${session.user.nickname}></label> 
+   </div>
+    <input type="text" class="form-control"  id="nickname" name="nickname"  placeholder="Nickname">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control"  id="password" name="password" placeholder="password">
+  </div>
+  <div class="form-group">
+  	<span>邮箱: </span>
+    <label th:text=${session.user.email}></label>
+    <input type="email" class="form-control"  id="email" name="email" placeholder="email" >
+  </div>
+  <div class="form-group">
+  	<span>手机号: </span>
+    <label th:text=${session.user.address}></label>
+    <input type="number" class="form-control"  id="address" name="address"  placeholder="address">
+  </div>
+	<div class="form-group">
+			<input class="form-check-input" type="radio" name="sex"
+				value="1" checked="" > <label class="form-check-label" >
+				Male </label>
+		</div>
+ 	<div class="form-group">
+                        <input class="form-check-input" type="radio" name="sex" value="2" checked="">
+                        <label class="form-check-label">
+                        Female
+                        </label>
+                     </div>
+		<button type="submit" class="btn btn-default">修改</button>
+		<a href="/"><label  class="btn btn-default">返回主页</label></a>
+</form>
+<div th:insert="footer :: foot"></div>
+
+</body>
+</html>
