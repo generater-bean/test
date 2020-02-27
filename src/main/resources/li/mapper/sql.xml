@@ -47,7 +47,7 @@
     	select * from user where id = #{id} 
     </select>
      <select id="selectByNameAndAccountId" resultMap="setUser" parameterType="li.model.User">
-    	select * from user where name = #{name} and account_id=#{accountId}
+    	select * from user where nickname = #{nickname} and password=#{password}
     </select>
      <update id="updateUser" parameterType="li.model.User">
        update user set name=#{name},token=#{token},gmt_modified=#{gmtModified},avatar_url=#{avatarUrl} where id=#{id}

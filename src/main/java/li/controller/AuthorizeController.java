@@ -155,8 +155,8 @@ public class AuthorizeController {
 		User user=new User();
 		//String  token=UUID.randomUUID().toString();
 		//user.setToken(token);
-		user.setName(localUser);
-		user.setAccountId(String.valueOf(localUserpwd));
+		user.setNickname(localUser);
+		user.setPassword(String.valueOf(localUserpwd));
 		//user.setAvatarUrl(githubUser.getAvatar_url());
 		User dbuser =userservice.localUserLogin(user);
 		if(dbuser!=null) {

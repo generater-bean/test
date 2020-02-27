@@ -30,7 +30,7 @@ public class UserService {
 			user.setAddress("12345678911");
 			user.setGmtCreate(System.currentTimeMillis());
 			user.setGmtModified(user.getGmtCreate());
-			user.setNickname("nickname"+user.getGmtCreate());
+			user.setNickname(user.getName());
 			sqlDao.addUser(user);
 		}else {
 			//更新
