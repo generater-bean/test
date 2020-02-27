@@ -47,6 +47,8 @@ public class RegisterController {
 		user.setName(localUserName);
 		user.setAccountId(localUserPassword);
 		user.setAvatarUrl("http://pics.sc.chinaz.com/Files/pic/icons128/7570/e10.png");
+		user.setEmail("123456@qq.com");
+		user.setAddress("12345678911");
 		if(userservice.addRegister(user)) {
 			model.addAttribute("localUserName",localUserName);
 			return "redirect:/";

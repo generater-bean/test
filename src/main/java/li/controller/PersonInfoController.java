@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,13 +31,13 @@ public class PersonInfoController {
 			@RequestParam(name= "nickname" )String nickname,
 			@RequestParam(name= "password" )String password,
 			@RequestParam(name= "email" )String email,
-			@RequestParam(name="address" ,defaultValue = "0" )long address,
+			@RequestParam(name="address"  )String address,
 			@RequestParam(name="sex" )int sex,
 			HttpServletRequest request) {
 		
 		User user=(User)request.getSession().getAttribute("user");
 		
-		if(address!=0) {
+		if(!address.equals("")) {
 			user.setAddress(address);
 		}
 		if(!String.valueOf(sex).equals("")) {

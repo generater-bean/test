@@ -26,8 +26,11 @@ public class UserService {
 		User  dbUser=sqlDao.selectByAccountId(user.getAccountId());
 		if(dbUser==null	) {
 			//插入
+			user.setEmail("123456@qq.com");
+			user.setAddress("12345678911");
 			user.setGmtCreate(System.currentTimeMillis());
 			user.setGmtModified(user.getGmtCreate());
+			user.setNickname("nickname"+user.getGmtCreate());
 			sqlDao.addUser(user);
 		}else {
 			//更新
@@ -61,6 +64,7 @@ public class UserService {
 			//插入
 			user.setGmtCreate(System.currentTimeMillis());
 			user.setGmtModified(user.getGmtCreate());
+			user.setNickname("nickname"+user.getGmtCreate());
 			sqlDao.addUser(user);
 			return true;
 		}else {

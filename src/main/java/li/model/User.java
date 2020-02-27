@@ -5,7 +5,7 @@ public class User {
 	private String  name;
 	private String  nickname;
 	private String  password;
-	private long  address;
+	private String  address;
 	private int  sex;
 	private String  email;
 	private String  accountId;
@@ -33,12 +33,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getAddress() {
-		return address;
-	}
-	public void setAddress(long address) {
-		this.address = address;
-	}
+	
 	public int getSex() {
 		return sex;
 	}
@@ -92,6 +87,12 @@ public class User {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	
