@@ -151,6 +151,12 @@ public class SqlDao {
 		session.commit();
 	}
 
+	public List<Question> selectHotId() {
+		// TODO Auto-generated method stub
+		List<Question> id =session.selectList("li.mapper.sql.selectHotId");
+		return id;
+	}
+
 
 	
 }

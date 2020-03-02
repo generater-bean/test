@@ -150,3 +150,23 @@ background-image: url("/images/12345.jpg")  ;
     background: #FFF;
     margin: auto 20%;
 }
+.table-img{
+	width: 100px;
+	
+}
+.table-theme{
+	width: 400px;
+	font-size: 18px;
+	text-align: left;
+}
+.table-cc{
+	width: 100px;
+}
+.table-vc{
+	width: 100px;
+}
+.table-ct{
+	width: 200px;
+    text-align: right;
+    line-height: 14px;
+}

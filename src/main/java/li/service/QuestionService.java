@@ -180,4 +180,12 @@ public class QuestionService {
 		}).collect(Collectors.toList());
 		return questionDTOs;
 	}
+
+	public List<Question> selectHotId() {
+		// TODO Auto-generated method stub
+		SqlSession s = SqlSessionmapper.getSqlSession();
+		sqlDao = new SqlDao(s);
+		List<Question> ids=sqlDao.selectHotId();
+		return ids;
+	}
 }

@@ -137,4 +137,7 @@
     <select id="selectRelated" resultMap="setQuestion" parameterType="li.model.Question" >
     	select * from question  where id!=#{id} and tag regexp #{tag}
     </select>
+    <select id="selectHotId"  resultMap="setQuestion" >
+    	select * from question  ORDER BY view_count DESC LIMIT 4
+    </select>
 </mapper>

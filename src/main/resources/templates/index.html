@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>首页</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="/js/jquery-3.4.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" href= "/community.css"/>
+<title>首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/community.css" />
+
 </head>
 <!-- 加载时校验值 -->
 <script type="text/javascript">
@@ -32,81 +33,99 @@
 
  </script>
 
-
-
-</script>
 <body>
 
-<div th:insert="navigation :: nav"></div>
-<div class="container-fluid main" style="z-index: 1">
-  <div class="row">
-    <div class="col-lg-9 col-md-12	col-sm-12	col-xs-12 " >
-    
-    <h2><span class="glyphicon  glyphicon-list" aria-hidden="true"></span>发现</h2>
-    <hr>
-    <!-- 显示列表 -->
-	    <div class="media "th:each="question:${paginations.data}">
-	  <div class="media-left">
-	    <a href="#">
-	      <img class="media-object  img-rounded "  th:src="${question.user.avatarUrl}" >
-	    </a>
-	  </div>
-	  <div class="media-body">
-	    	<h4 class="media-heading">
-	    	<a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
-	    	</h4><br>
-		    <br>
-		    
-		    <span th:text="${question.commentCount}"></span>个回复*<span th:text="${question.viewCount}"></span>个浏览*
-		    <span th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></span> 
-		    <br>
-	  </div>
+	<div th:insert="navigation :: nav"></div>
+	<div class="container-fluid main" style="z-index: 1">
+		<div class="row">
+			<div class="col-lg-9 col-md-12	col-sm-12	col-xs-12 ">
+
+				<h2>
+					<span class="glyphicon  glyphicon-list" aria-hidden="true"></span>发现
+				</h2>
+				<hr>
+				<table class="table table-hover table-striped ">
+					
+						<tr >
+							<td class="table-img">分类</td>
+							<td class="table-img">头像</td>
+							<td class="table-theme">主题</td>
+							<td class="table-cc">回复数</td>
+							<td class="table-vc">浏览数</td>
+							<td class="table-ct">最新回复</td>
+						</tr>
+					
+					<tr class="table-info" th:each="question:${paginations.data}">
+						<td class="table-img" th:text="${question.tag}">分类</td>
+						<td class="table-img"><a href="#"> <img
+								class="media-object  img-rounded "
+								th:src="${question.user.avatarUrl}">
+						</a></td>
+						<td><a class="table-theme"
+							th:href="@{'/question/'+${question.id}}"
+							th:text="${question.title}"></a></td>
+						<td class="table-cc"><span th:text="${question.commentCount}"></span></td>
+						<td class="table-vc"><span th:text="${question.viewCount}"></span></td>
+						<td class="table-ct"><span
+							th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></span></td>
+					</tr>
+
+				</table>
+				<!-- 分隔符！！！！！！！ -->
+				<hr class="col-lg-12 col-md-12	col-sm-12	col-xs-12 ">
+
+				<!-- 显示列表 -->
+
+
+				<!-- 分页 -->
+				<nav aria-label="Page navigation">
+					<ul class="pagination">
+						<li th:if="${paginations.showFirstPage}"><a
+							th:href="@{/(page=${page},search=${search})}"
+							aria-label="Previous"> <span aria-hidden="true">&lt;&lt;</span>
+						</a></li>
+						<li th:if="${paginations.showPrevious}"><a
+							th:href="@{/(page=${paginations.page-1},search=${search})}"
+							aria-label="Previous"> <span aria-hidden="true">&lt;</span>
+						</a></li>
+						<li th:each="page:${paginations.pages}"
+							th:class="${paginations.page==page}?'active':''"><a
+							th:href="@{/(page=${page},search=${search})}" th:text="${page}"></a>
+						</li>
+
+						<li th:if="${paginations.showNext}"><a
+							th:href="@{/(page=${paginations.page+1},search=${search})}"
+							aria-label="Next"> <span aria-hidden="true">&gt;</span>
+						</a></li>
+						<li th:if="${paginations.showEndPage}"><a
+							th:href="@{/(page=${paginations.totalPage},search=${search})}"
+							aria-label="Previous"> <span aria-hidden="true">&gt;&gt;</span>
+						</a></li>
+					</ul>
+				</nav>
+				<!-- 分页 -->
+			</div>
+
+			<div class="col-lg-3 col-md-12	col-sm-12	col-xs-12 ">
+				<h3>热门话题</h3>
+
+
+				<div class="media ">
+					<ul class="question-related list-group">
+						<li class="list-group-item" th:each="question:${ids}"><a
+							th:href="@{'/question/'+${question.id}}"
+							th:text="${question.title}"></a></li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
 	</div>
-	<!-- 显示列表 -->
-	
-	
-	<!-- 分页 -->
-		<nav aria-label="Page navigation">
-	  <ul class="pagination">
-	  <li th:if="${paginations.showFirstPage}">
-	   <a th:href="@{/(page=${page},search=${search})}" aria-label="Previous">
-	        <span aria-hidden="true">&lt;&lt;</span>
-	  </a>
-	  </li>
-	    <li th:if="${paginations.showPrevious}">
-	      <a th:href="@{/(page=${paginations.page-1},search=${search})}" aria-label="Previous">
-	        <span aria-hidden="true">&lt;</span>
-	      </a>
-	    </li>
-	    <li th:each="page:${paginations.pages}" th:class="${paginations.page==page}?'active':''" >
-	    <a th:href="@{/(page=${page},search=${search})}" th:text="${page}" ></a>
-	    </li>
-	    
-	    <li th:if="${paginations.showNext}">
-	      <a th:href="@{/(page=${paginations.page+1},search=${search})}" aria-label="Next">
-	        <span aria-hidden="true">&gt;</span>
-	      </a>
-	    </li>
-	     <li th:if="${paginations.showEndPage}">
-	   <a th:href="@{/(page=${paginations.totalPage},search=${search})}" aria-label="Previous">
-	        <span aria-hidden="true">&gt;&gt;</span>
-	  </a>
-	  </li>
-	  </ul>
-	</nav>
-	<!-- 分页 -->
-   </div>
-    
-    <div class="col-lg-3 col-md-12	col-sm-12	col-xs-12 " >
-	<h3>热门话题</h3>
-   
-    </div>
-  </div>
-</div>
 
 
 
 
-<div th:insert="footer :: foot"></div>
+
+	<div th:insert="footer :: foot"></div>
 </body>
 </html>

@@ -1,4 +1,6 @@
 package li.controller;
+import java.awt.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import li.dto.PaginationDTO;
+import li.model.Question;
 import li.service.QuestionService;
 
 @Controller
@@ -26,6 +29,10 @@ public class IndexController {
        if(paginations!=null) {
        model.addAttribute("paginations", paginations);
        model.addAttribute("search", search);
+       
+       //热门话题
+       java.util.List<Question> ids=questionService.selectHotId();
+       model.addAttribute("ids", ids);
        }
        
        return "index";

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import li.dto.PaginationDTO;
 import li.dto.QuestionDTO;
 import li.dto.UserDTO;
-import li.model.Question;
 import li.model.User;
 import li.service.AdminService;
 import li.service.UserService;
