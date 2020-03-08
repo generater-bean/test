@@ -5,7 +5,7 @@
   
   
 <mapper namespace="li.mapper.admin">
-<resultMap type="li.model.User" id="setUser">
+	<resultMap type="li.model.User" id="setUser">
 	<id column="id" property="id" />
 	<result column="name" property="name"/>
 	<result column="token" property="token"/>
@@ -13,7 +13,11 @@
 	<result column="gmt_modified" property="gmtModified"/>
 	<result column="avatar_url" property="avatarUrl"/>
 	<result column="account_id" property="accountId"/>
-	<result column="role" property="role"/>
+	<result column="email" property="email"/>
+	<result column="address" property="address"/>
+	<result column="sex" property="sex"/>
+	<result column="nickname" property="nickname"/>
+	<result column="password" property="password"/>
 	</resultMap>
 	
 	<resultMap type="li.model.Question" id="setQuestion">
@@ -38,7 +42,7 @@
     	select count(1)  from user 
     </select>
      <select id="selectUser" resultMap="setUser" parameterType="li.model.Profile" >
-    	select * from user  ORDER BY id  limit #{offset},#{size}
+    	select * from user  ORDER BY id  DESC limit #{offset},#{size} 
     </select>
       <select id="count" resultType="java.lang.Integer" parameterType="li.dto.QuestionQueryDTO"  >
     	select count(1)  from question 

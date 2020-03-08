@@ -138,8 +138,7 @@ top:5%;
 z-index:3;
 height:480px;
 width:480px;
-background-color: gray;
-background-image: url("/images/12345.jpg")  ; 
+background-image: url("")  ; 
 }
 .form-horizontal{
 	margin-top: 30px;
@@ -149,6 +148,7 @@ background-image: url("/images/12345.jpg")  ;
     border: 1px solid #9DB3C5;
     background: #FFF;
     margin: auto 20%;
+    margin-top: 5%;
 }
 .table-img{
 	width: 100px;
@@ -169,4 +169,9 @@ background-image: url("/images/12345.jpg")  ;
 	width: 200px;
     text-align: right;
     line-height: 14px;
+}
+.login_logo{
+	 width:25px ;
+	 height:25px ;
+	 
 }

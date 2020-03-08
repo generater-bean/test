@@ -8,7 +8,7 @@ public enum  CustomizeErrorCode  implements ICustomizeErrorCode {
 		TYPE_PARAM_NOT_FOUND(2005," 评论类型错误或不存在"), 
 		COMMENT_NOT_FIND(2006," 回复的评论不存在了，要不要换个试试？"),
 		TXET_NO_FIND(2007," 文本为空，请评论"),
-		
+		NO_EXICT_ACOUNT(3000,"账号已存在！"),
 		READ_NOTIFICATION(2008,"非法操作，这是别人的信息！"),
 		NOTIFICATION_NOT_FOUND(2009,"消息走丢了"),
 		;

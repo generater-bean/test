@@ -1,3 +1,136 @@
+///开关register_form 
+
+	function openme(){
+	document.getElementById('login-interface').style.display='block';
+	document.getElementById('login-background').style.display='block';
+	}
+	function closeLogin(){
+	document.getElementById('login-interface').style.display='none';
+	document.getElementById('login-background').style.display='none';
+	}
+	///开关admin_form 
+	function openForm(){
+	document.getElementById('admin-interface').style.display='block';
+	document.getElementById('admin-background').style.display='block';
+	}
+	function closeForm(){
+	document.getElementById('admin-interface').style.display='none';
+	document.getElementById('admin-background').style.display='none';
+	}
+//返回主页
+
+//qq登录
+	function qqlogin(){
+		window.open("https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101809971&redirect_uri=http://192.168.43.104/connect&scope=get_user_info")
+		window.localStorage.setItem("closable",true);
+		window.location.reload();
+	}
+//GitHub登录
+	function githublogin(){
+		window.open("https://github.com/login/oauth/authorize?client_id=d7b4e607d978f48fcc38&redirect_uri=http://192.168.43.104/callback&scope=user&state=1")
+		window.localStorage.setItem("closable",true);
+		window.location.reload();
+	}
+
+//注册传值
+	function registerPost(){
+		var username = $("#register_name").val();
+		var userpassword = $("#register_password").val();
+		var text_password = $("#text_password").val();
+		var address = $("#address").val();
+		var email = $("#email").val();
+		if(text_password!=userpassword){
+			alert("密码不一致！");
+			return;
+		}
+		register(username,userpassword,1,address,email,1);
+		
+	}
+	
+//注册传值
+function adminPost(){
+	var username = $("#register_name").val();
+	var userpassword = $("#register_password").val();
+	var role = $("#inlineRadioOptions").val();
+	var address = $("#address").val();
+	var email = $("#email").val();
+	
+	register(username,userpassword,role,address,email,1);
+	
+}
+
+function register(username,userpassword,role,address,email,sex){
+	
+	if(!username){
+		alert("name is null！");
+		return;
+	}
+	if(!userpassword){
+		alert("password is null！");
+		return;
+	}else{
+		var pattern = /^[\w_-]{6,16}$/;
+		if(!pattern.test(userpassword)){
+			alert("密码最短6位！");
+			return;
+		}
+	}
+	if(!address){
+		alert("address is null！");
+		return;
+	}else{
+		var myreg=/^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+	    if (!myreg.test(address)) {
+	    	alert("手机号格式不正确！");
+	        return ;
+	    } 
+	}
+	
+	if(!email){
+		alert("email is null！");		
+		return;
+	}else{
+		var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+		if(!reg.test(email)){
+			alert("邮箱格式不正确");
+			return;
+		}
+
+	}
+	
+	
+	
+		$.ajax({
+			  type: "POST",
+			  url: "/adduser",
+			  contentType:'application/json',
+			  data: JSON.stringify({
+				  "username":username,
+				  "userpassword":userpassword,
+				  "role":role,
+				  "sex":sex,
+				  "address":address,
+				  "email":email
+			  }) ,
+			  success: function(response){
+	
+				  if(response.code==200){
+					   alert(response.message); 
+					  window.location.reload();
+				  }else{			
+							  alert(response.message);
+							  window.location.reload();
+					  
+				  }
+				
+			  },
+			  
+			  dataType: "json"
+			});
+	
+}
+
+
 //回复传值
 
 function post(){
@@ -32,7 +165,7 @@ function comment2target(targetId,type,content){
 					  if(response.code==2003){
 						  var isAccepted=confirm(response.message);
 						  if(isAccepted){
-							  window.open("https://github.com/login/oauth/authorize?client_id=d7b4e607d978f48fcc38&redirect_uri=http://localhost:8887/callback&scope=user&state=1")
+							  window.open("https://github.com/login/oauth/authorize?client_id=d7b4e607d978f48fcc38&redirect_uri=http://192.168.43.104/callback&scope=user&state=1")
 							  window.localStorage.setItem("closable",true);
 						  }
 					  }else{

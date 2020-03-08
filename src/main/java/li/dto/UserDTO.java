@@ -3,6 +3,10 @@ package li.dto;
 public class UserDTO {
 	private long id;
 	private String  name;
+	private String  nickname;
+	private String  address;
+	private String  email;
+	private int sex;
 	private String  accountId;
 	private String  token;
 	private long gmtCreate;
@@ -56,5 +60,29 @@ public class UserDTO {
 	}
 	public void setRole(long role) {
 		this.role = role;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getSex() {
+		return sex;
+	}
+	public void setSex(int sex) {
+		this.sex = sex;
 	}
 }

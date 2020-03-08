@@ -66,6 +66,9 @@
 	 <select id="selectByName" resultMap="setUser" parameterType="String">
     	select * from user where name = #{name}
     </select>
+     <select id="selectByNickname" resultMap="setUser" parameterType="String">
+    	select * from user where nickname = #{name}
+    </select>
     
     
     
@@ -75,7 +78,9 @@
     	<where>
     	<if test="search != null">
     		and title regexp #{search}
+    		or description regexp #{search} 
     	</if>
+    
     	<if test="page !=null">
     		and like_count=0
     	</if>
@@ -86,14 +91,14 @@
     	 
     	select * from question  
     	<where>
-    	<if test="search != null   ">
-    		and title regexp #{search} 
-    	</if>
     	<if test="page !=null">
     		and like_count=0
     	</if>
-    	</where>
-    	 
+    	<if test="search != null   ">
+    		and title regexp #{search}
+    		or description regexp #{search} 
+    	</if>
+    	</where>	 
     	ORDER BY gmt_modified DESC limit #{page},#{size}
     </select>
     
