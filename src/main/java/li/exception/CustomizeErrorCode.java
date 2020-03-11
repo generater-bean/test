@@ -11,6 +11,7 @@ public enum  CustomizeErrorCode  implements ICustomizeErrorCode {
 		NO_EXICT_ACOUNT(3000,"账号已存在！"),
 		READ_NOTIFICATION(2008,"非法操作，这是别人的信息！"),
 		NOTIFICATION_NOT_FOUND(2009,"消息走丢了"),
+		LOGIN_ERROR(3001,"登陆失败！用户民或密码不正确"),
 		;
 		@Override
 		public String getMessage()	{

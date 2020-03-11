@@ -1,3 +1,49 @@
+//本地登录
+function locallogin(){
+	var localUser = $("#localUser").val();
+	var localUserpwd = $("#localUserpwd").val();
+	if(!localUser){
+		alert("name is null！");
+		return;
+	}
+	
+	if(!localUserpwd){
+		alert("password is null！");
+		return;
+	}
+	
+	
+	$.ajax({
+		  type: "POST",
+		  url: "/localLogin",
+		  contentType:'application/json',
+		  data: JSON.stringify({
+			  
+			  "localUser":localUser,
+			  "localUserpwd":localUserpwd,
+			 
+		  }) ,
+		  success: function(response){
+
+			  if(response.code==200){
+				  alert("登录成功！");
+				  window.location.reload();
+				  
+			  }else{			
+						  alert(response.message);
+						  window.location.reload();
+				  
+			  }
+			
+		  },
+		  
+		  dataType: "json"
+		});
+	
+}
+
+
+
 ///开关register_form 
 
 	function openme(){

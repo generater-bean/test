@@ -11,11 +11,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import li.dto.AccessTokenDTO;
 import li.dto.GithubUser;
 import li.dto.QQInfoDTO;
 import li.dto.QQUserDTO;
+import li.dto.ResultDTO;
+import li.dto.UserJsonDTO;
+import li.exception.CustomizeErrorCode;
 import li.model.User;
 import li.provider.GithubProvider;
 import li.provider.QQProvider;
@@ -146,27 +154,28 @@ public class AuthorizeController {
 	 * @param response
 	 * @return
 	 */
-	@GetMapping("/localLogin")
-	public String  localLogin(HttpServletRequest request,
-			@RequestParam(name="localUser")String localUser,
-			@RequestParam(name="localUserpwd")String localUserpwd,
+
+	@ResponseBody
+	@RequestMapping(value = "/localLogin",method =RequestMethod.POST)
+	public Object  localLogin(HttpServletRequest request,
+			@RequestBody UserJsonDTO userJsonDTO,
 			HttpServletResponse response,Model model ) {
 		
 		User user=new User();
 		//String  token=UUID.randomUUID().toString();
 		//user.setToken(token);
-		user.setNickname(localUser);
-		user.setPassword(String.valueOf(localUserpwd));
+		user.setNickname(userJsonDTO.getLocalUser());
+		user.setPassword(userJsonDTO.getLocalUserpwd());
 		//user.setAvatarUrl(githubUser.getAvatar_url());
 		User dbuser =userservice.localUserLogin(user);
 		if(dbuser!=null) {
 		response.addCookie(new Cookie("token", dbuser.getToken()));
 		//登陆成功，写cookie和session
 		request.getSession().setAttribute("user", user);   //传user给网页
-		return "redirect:/";
+			return ResultDTO.okOf();
 		}else {
 			
-			return "redirect:/";
+			return ResultDTO.errorOf(CustomizeErrorCode.LOGIN_ERROR);
 		}
 		
 	}
