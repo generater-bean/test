@@ -7,7 +7,8 @@ package li.enums;
  */
 public enum CommentTypeEnum {
 	QUESTION(1),
-	COMMENT(2);
+	COMMENT(2),
+	DIALOG(3);
 	private Integer type;
 	public Integer getType() {
 		return type;

@@ -2,7 +2,8 @@ package li.enums;
 
 public enum NotificationTypeEnum {
 	REPLY_QUESTION(1,"回复了问题"),
-	REPLY_COMMENT(2,"回复了评论")
+	REPLY_COMMENT(2,"回复了评论"),
+	REPLY_DIALOG(3,"私聊了")
 	;
 	private int type;
 	private String name;

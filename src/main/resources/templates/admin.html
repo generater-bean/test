@@ -91,7 +91,7 @@
 								th:text=" ${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 							<td><a th:href="@{'/deleteQuestion/'+${question.id}}">删除</a></td>
 							<td><a th:href="@{'/LimitQuestion/'+${question.id}}"><span
-									th:text="${question.likeCount}==0?'封印':'解封'"> </span></a></td>
+									th:text="${question.likeCount}==0?'冻结':'解封'"> </span></a></td>
 						</tr>
 					</table>
 

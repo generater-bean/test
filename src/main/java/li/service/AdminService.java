@@ -1,17 +1,13 @@
 package li.service;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import li.dto.PaginationDTO;
 import li.dto.QuestionDTO;
 import li.dto.UserDTO;
-import li.mapper.SqlDao;
 import li.mapper.SqlSessionmapper;
 import li.mapper.adminDao;
 import li.model.Profile;

@@ -45,38 +45,34 @@
 					<span class="glyphicon  glyphicon-list" aria-hidden="true"></span>发现
 				</h2>
 				<hr>
-				<table class="table table-hover table-bordered table-striped ">
-					
-						<tr >
-							<td class="table-img">分类</td>
-							<td class="table-img">头像</td>
-							<td class="table-theme">主题</td>
-							<td class="table-cc">回复数</td>
-							<td class="table-vc">浏览数</td>
-							<td class="table-ct">最新回复</td>
-						</tr>
-					
-					<tr class="table-info" th:each="question:${paginations.data}">
-						<td class="table-img" th:text="${question.tag}">分类</td>
-						<td class="table-img"><a href="#"> <img
-								class="media-object  img-rounded "
-								th:src="${question.user.avatarUrl}">
-						</a></td>
-						<td><a class="table-theme"
-							th:href="@{'/question/'+${question.id}}"
-							th:text="${question.title}"></a></td>
-						<td class="table-cc"><span th:text="${question.commentCount}"></span></td>
-						<td class="table-vc"><span th:text="${question.viewCount}"></span></td>
-						<td class="table-ct"><span
-							th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></span></td>
-					</tr>
 
-				</table>
-				<!-- 分隔符！！！！！！！ -->
-				<hr class="col-lg-12 col-md-12	col-sm-12	col-xs-12 ">
+
+
 
 				<!-- 显示列表 -->
+				<!-- 显示列表 -->
+				<div class="media " th:each="question:${paginations.data}">
+					<div class="media-left">
+						<a href="#"> <img class="media-object  img-rounded "
+							th:src="${question.user.avatarUrl}">
+						</a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">
+							<a th:href="@{'/question/'+${question.id}}"
+								th:text="${question.title}"></a>
+						</h4>
 
+						<div>
+							<span th:text="${question.commentCount}"></span>个回复*<span
+								th:text="${question.viewCount}"></span>个浏览* <span
+								th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+
+						</div>
+					</div>
+					<!-- 分隔符！！！！！！！ -->
+					<hr class="col-lg-12 col-md-12	col-sm-12	col-xs-12 ">
+				</div>
 
 				<!-- 分页 -->
 				<nav aria-label="Page navigation">

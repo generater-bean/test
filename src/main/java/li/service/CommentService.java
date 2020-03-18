@@ -53,6 +53,9 @@ public class CommentService {
 		if (comment.getType() == null || !CommentTypeEnum.isExist(comment.getType())) {
 			throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_NOT_FOUND);
 		}
+		
+		
+		
 		if (comment.getType() == CommentTypeEnum.COMMENT.getType()) {
 			// 回复评论
 			Comment dbComment = commentDao.selectById(comment.getParentId());
@@ -72,7 +75,7 @@ public class CommentService {
 			// 创建通知
 			createNotify(comment, dbComment.getCommentator(), commentator.getName(), question.getTitle(),
 					NotificationTypeEnum.REPLY_COMMENT, question.getId());
-		} else {
+		} else if(comment.getType() == CommentTypeEnum.QUESTION.getType()){
 			// 回复问题
 			Question question = sqlDao.getById(comment.getParentId());
 			if (question == null) {

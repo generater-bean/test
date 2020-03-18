@@ -1,6 +1,9 @@
 body {
 	background-color: #efefef;
 }
+.border{
+	    border-right: 1px solid #e6e6e6;
+}
 .main{
 	background-color:white;
 	margin: 30px;
@@ -129,7 +132,16 @@ width: 355px;
 z-index:3;
 background-color: white;
 }
-
+.form-dialog{
+display: none;
+position: fixed;
+left: 37%;
+top:34%;
+height: 320px;
+width: 355px;
+z-index:3;
+background-color: white;
+}
 .form-admin{
 display: none;
 position: absolute;

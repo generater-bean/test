@@ -1,3 +1,64 @@
+	function opendialog(e){
+	
+	var dialogId=e.getAttribute("data-id");
+	var dialogName=e.getAttribute("data-name");
+	$("#dialog_name").val(dialogName);
+	$("#dialog_id").val(dialogId);
+	document.getElementById('dialog-interface').style.display='block';
+	document.getElementById('dialog-background').style.display='block';	
+	}
+	function closedialog(){
+	document.getElementById('dialog-interface').style.display='none';
+	document.getElementById('dialog-background').style.display='none';
+	}
+	
+	function dialog(){
+	var outerName = $("#outer_name").val();
+	var outerId = $("#outer_id").val();
+	var dialogName = $("#dialog_name").val();
+	var dialogId = $("#dialog_id").val();
+	var dialogContent = $("#dialog_content").val();
+	if(!dialog_content){
+		alert("dialog_content is null！");
+		return;
+	}
+	
+	$.ajax({
+		  type: "POST",
+		  url: "/getdialog",
+		  contentType:'application/json',
+		  data: JSON.stringify({
+			  
+			  "outerName":outerName,
+			  "outerId":outerId,
+			  "dialogName":dialogName,
+			  "dialogId":dialogId,
+			  "dialogContent":dialogContent,
+			 
+		  }) ,
+		  success: function(response){
+
+			  if(response.code==200){
+				  alert("他已收到你的来信。请耐心等候回复！");
+				  	$("#dialog_name").val("");
+					$("#dialog_id").val("");
+				  window.location.reload();
+				  
+			  }else{			
+						  alert(response.message);
+						  window.location.reload();
+				  
+			  }
+			
+		  },
+		  
+		  dataType: "json"
+		});
+
+
+	}
+
+
 //本地登录
 function locallogin(){
 	var localUser = $("#localUser").val();

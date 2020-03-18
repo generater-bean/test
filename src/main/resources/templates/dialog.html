@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${sectionName}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/community.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../community.css" />
+</head>
+<script type="text/javascript">
+
+</script>
+<body>
+	<div th:insert="navigation :: nav"></div>
+
+	<div class="container-fluid main profile">
+		<div class="row">
+			<!-- 左页面 -->
+			<div class="col-lg-9 col-md-12	col-sm-12	col-xs-12  border">
+				<h2>
+					<span th:text="${sectionName}"></span>
+				</h2>
+				<hr>
+				<!-- 全部用户界面 -->
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
+					th:if="${section=='all'}">
+					<div class="media " th:each="duser:${paginations.data}">
+						<div class="media-left">
+							<a href="#"> <img class="media-object  img-rounded "
+								th:src="${duser.avatarUrl}">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">
+								<span th:text="${duser.nickname}"></span>
+							</h4>
+							<br> <span>关注</span>
+							<button id="btn" onclick="opendialog(this)" class="btn btn-success  pull-right"
+								th:data-id="${duser.id}"
+								th:data-name="${duser.nickname}">私信</button>
+
+
+						</div>
+						<hr>
+					</div>
+
+				</div>
+				<!-- 全部用户界面 -->
+
+
+
+				<!-- 我关注的人界面 -->
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
+					th:if="${section=='myviewer'}">
+					<div class="media " th:each="duser:${paginations.data}">
+						<div class="media-left">
+							<a href="#"> <img class="media-object  img-rounded "
+								th:src="${duser.avatarUrl}">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">
+								<span th:text="${duser.nickname}"></span>
+							</h4>
+							<button class="btn btn-success  pull-right"
+								onclick="opendialog(this)" th:data-id="${duser.id}"
+								th:data-name="${duser.nickname}">私信</button>
+
+
+						</div>
+						<hr>
+					</div>
+
+				</div>
+				<!-- 我关注的人界面 -->
+				<!-- 私信的界面 -->
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
+					th:if="${section=='pdialog'}">
+					<div class="media " th:each="DialogUserDTO:${paginations.data}">
+						<div class="media-left">
+						<a href="#"> <img class="media-object  img-rounded "
+								th:src="${DialogUserDTO.user.avatarUrl}">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">
+								<span th:text="${DialogUserDTO.dialogInfo.outerName}"></span>
+							</h4>
+						<p>私聊您说：<span th:text="${DialogUserDTO.dialogInfo.dialogContent}"></span></p>
+						<span th:text="${#dates.format(DialogUserDTO.dialogInfo.gmtCreate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+						<button class="btn btn-success  pull-right"
+								onclick="opendialog(this)" th:data-id="${DialogUserDTO.dialogInfo.outerId}"
+								th:data-name="${DialogUserDTO.dialogInfo.outerName}">回复</button>
+
+						</div>
+						<hr>
+					</div>
+
+				</div>
+			<!-- 私信的界面 -->
+
+				<!-- 分页界面 -->
+				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 ">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li th:if="${paginations.showFirstPage}"><a
+								th:href="@{'/dialog/'+${section}(page=${1})}"
+								aria-label="Previous"> <span aria-hidden="true">&lt;&lt;</span>
+							</a></li>
+							<li th:if="${paginations.showPrevious}"><a
+								th:href="@{'/dialog/'+${section}(page=${paginations.page-1})}"
+								aria-label="Previous"> <span aria-hidden="true">&lt;</span>
+							</a></li>
+							<li th:each="page:${paginations.pages}"
+								th:class="${paginations.page==page}?'active':''"><a
+								th:href="@{'/dialog/'+${section}(page=${page})}"
+								th:text="${page}"></a></li>
+
+							<li th:if="${paginations.showNext}"><a
+								th:href="@{'/dialog/'+${section}(page=${paginations.page+1})}"
+								aria-label="Next"> <span aria-hidden="true">&gt;</span>
+							</a></li>
+							<li th:if="${paginations.showEndPage}"><a
+								th:href="@{'/dialog/'+${section}(page=${paginations.totalPage})}"
+								aria-label="Previous"> <span aria-hidden="true">&gt;&gt;</span>
+							</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<!-- 右页面 -->
+			<div class="col-lg-3 col-md-12	col-sm-12	col-xs-12 ">
+
+				<div class="list-group  section">
+					<ul class="question-related list-group">
+						<li class="list-group-item"> <a href="/dialog/all"
+							th:class="${section=='all'}?'active  list-group-item':'list-group-item'">全部</a>
+						</li >
+						<li class="list-group-item"><a href="/dialog/myviewer"
+							th:class="${section=='myviewer'}?'active  list-group-item':'list-group-item'">
+								我关注的人 </a></li>
+						<li class="list-group-item"><a href="/dialog/pDialogInfo"
+							th:class="${section=='pdialog'}?'active  list-group-item':'list-group-item'">
+								私信我 <span class="badge" th:text="${session.DialogUnread}"></span> </a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div id="dialog-background" class="div-login"></div>
+
+	<div id="dialog-interface" class="form-dialog">
+
+		<div class="media ">
+			<div class="media-body">
+				<h4 class="media-heading">
+					<span>新私信</span>
+				</h4>
+			</div>
+			<input type="hidden" class="form-control" id="outer_name"
+				th:value="${session.user.nickname}"> <input type="hidden"
+				class="form-control" id="outer_id" th:value="${session.user.id}">
+			<input type="hidden" class="form-control" id="dialog_id"> <input
+				type="text" class="form-control" id="dialog_name" value="">
+			<textarea class="form-control comment " rows="3" id="dialog_content"></textarea>
+			<button id="close" onclick="closedialog()">取消</button>
+			<button type="button"  id="submit" class="btn btn-success btn-comment"
+				onclick="dialog()">发送</button>
+
+
+		</div>
+
+	</div>
+
+
+	<div th:insert="footer :: foot"></div>
+</body>
+</html>

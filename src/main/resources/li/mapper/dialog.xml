@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="li.mapper.dialog">
+	<resultMap type="li.model.DialogInfo" id="setDialog">
+	<id column="id" property="id" />
+	<result column="receiver_name" property="dialogName"/>
+	<result column="receiver_id" property="dialogId"/>
+	<result column="outer_name" property="outerName"/>
+	<result column="outer_id" property="outerId"/>
+	<result column="dialog_content" property="dialogContent"/>
+	<result column="status" property="status"/>
+	<result column="gmt_create" property="gmtCreate"/>
+	</resultMap>
+<resultMap type="li.model.User" id="setUser">
+	<id column="id" property="id" />
+	<result column="name" property="name"/>
+	<result column="token" property="token"/>
+	<result column="gmt_create" property="gmtCreate"/>
+	<result column="gmt_modified" property="gmtModified"/>
+	<result column="avatar_url" property="avatarUrl"/>
+	<result column="account_id" property="accountId"/>
+	<result column="email" property="email"/>
+	<result column="address" property="address"/>
+	<result column="sex" property="sex"/>
+	<result column="nickname" property="nickname"/>
+	<result column="password" property="password"/>
+	</resultMap>
+  <insert id="insertDialog" parameterType="li.model.DialogInfo">
+      insert into dialog (receiver_name,receiver_id,outer_name,outer_id,dialog_content,status,gmt_create)
+       values(#{dialogName},#{dialogId},#{outerName},#{outerId},#{dialogContent},#{status},#{gmtCreate})        
+    </insert>	
+     <select id="selectUser" resultMap="setUser" parameterType="li.model.Profile" >
+    	select * from user  ORDER BY id  DESC limit #{offset},#{size} 
+    </select>
+    <select id="selectById" resultMap="setUser" parameterType="long" >
+    	select * from user where id=#{id}  
+    </select>
+     <select id="selectByStatus" resultMap="setDialog" parameterType="li.model.Profile" >
+    	select * from dialog  where receiver_id=#{userId}    ORDER BY id  DESC limit #{offset},#{size} 
+    </select>
+     <select id="acountUser" resultType="java.lang.Integer"  parameterType="long" >
+    	select count(1)  from user 
+    </select>
+     <select id="acountStatus" resultType="java.lang.Integer"  parameterType="long" >
+    	select count(1)  from dialog where  status=0
+    </select>
+      <select id="accoutByIdAndStatus" resultType="long"  parameterType="li.model.DialogInfo" >
+    	select count(1)  from dialog where receiver_id = #{dialogId} and  status=#{status}
+    </select>
+    <update id="updateStatus" parameterType="li.model.DialogInfo">
+	 		update dialog set status=#{status} where receiver_id=#{dialogId} and status=0
+		</update>
+</mapper>

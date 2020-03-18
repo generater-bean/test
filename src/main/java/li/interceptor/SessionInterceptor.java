@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import li.mapper.SqlDao;
 import li.mapper.SqlSessionmapper;
 import li.model.User;
+import li.service.DialogService;
 import li.service.NotificationService;
 @Service
 public class SessionInterceptor implements HandlerInterceptor {
@@ -18,6 +19,8 @@ public class SessionInterceptor implements HandlerInterceptor {
 	private SqlDao sqlDao  ;
 	@Autowired
 	private NotificationService notificationService;
+	@Autowired
+	private DialogService dialogService;
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -35,7 +38,9 @@ public class SessionInterceptor implements HandlerInterceptor {
 		    			if(user!=null) {
 		    				request.getSession().setAttribute("user",user);
 		    				long unreadCount = notificationService.unreadCount(user.getId());
+		    				long DialogUnread=dialogService.unreadCount(user.getId());
 		    				request.getSession().setAttribute("unreadCount",unreadCount);
+		    				request.getSession().setAttribute("DialogUnread",DialogUnread);
 		    				}
 		    					break;
 		    			}

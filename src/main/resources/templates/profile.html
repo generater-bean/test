@@ -13,7 +13,7 @@
 	<div class="container-fluid main profile">
 		<div class="row">
 		<!-- 左边内容 -->
-			<div class="col-lg-9 col-md-12	col-sm-12	col-xs-12 ">
+			<div class="col-lg-9 col-md-12	col-sm-12	col-xs-12  border "  >
 				<h2>
 					<span th:text="${sectionName}"></span>
 				</h2>
@@ -40,10 +40,21 @@
 								class="glyphicon  glyphicon-pencil label label-success"
 								aria-hidden="true">编辑</a>
 
-							</span> <br>
-						</div>
-					</div>
+							</span>
+							<span class="community-menu"> <a
+								 th:href="@{'/LimitQuestion/'+${question.id}}"
+								th:if="${session.user!=null&&session.user.id==question.creator}"
+								class="glyphicon  glyphicon-pencil label label-success"
+								aria-hidden="true"><span
+									th:text="${question.likeCount}==0?'冻结':'解封'"> </span></a>
 
+							</span>
+							
+							 <br>
+						</div>
+						<hr>
+					</div>
+							
 				</div>
 				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
 					th:if="${section=='replies'}">
