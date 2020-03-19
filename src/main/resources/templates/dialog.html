@@ -26,20 +26,39 @@
 				<!-- 全部用户界面 -->
 				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
 					th:if="${section=='all'}">
-					<div class="media " th:each="duser:${paginations.data}">
+					<div class="media " th:each="all:${paginations.data}">
 						<div class="media-left">
 							<a href="#"> <img class="media-object  img-rounded "
-								th:src="${duser.avatarUrl}">
+								th:src="${all.user.avatarUrl}">
+								
+								
 							</a>
+							
 						</div>
 						<div class="media-body">
+						<input type="hidden" class="form-control" id="user_name"
+								th:value="${session.user.nickname}">
+						<input type="hidden" class="form-control" id="user_id"
+								th:value="${session.user.id}">	
+													
 							<h4 class="media-heading">
-								<span th:text="${duser.nickname}"></span>
+								<span th:text="${all.user.nickname}"></span>
+								<button class="btn btn-success  pull-right" 
+								
+								onclick="addFriend(this)"  
+								th:data-username="${session.user.nickname}"
+								th:data-userid="${session.user.id}"
+								th:data-friendname="${all.user.nickname}"
+								th:data-friendid="${all.user.id} "	
+								th:data-status="${all.friend.status} "							
+								><span id="status" th:text="${all.friend.status}==1?'关注':'已关注'"> </span></button>
+								
 							</h4>
-							<br> <span>关注</span>
+							<br> 
+							
 							<button id="btn" onclick="opendialog(this)" class="btn btn-success  pull-right"
-								th:data-id="${duser.id}"
-								th:data-name="${duser.nickname}">私信</button>
+								th:data-id="${all.user.id}"
+								th:data-name="${all.user.nickname}">私信</button>
 
 
 						</div>
@@ -54,19 +73,19 @@
 				<!-- 我关注的人界面 -->
 				<div class="col-lg-12 col-md-12	col-sm-12	col-xs-12 "
 					th:if="${section=='myviewer'}">
-					<div class="media " th:each="duser:${paginations.data}">
+					<div class="media " th:each="myviewer:${paginations.data}">
 						<div class="media-left">
 							<a href="#"> <img class="media-object  img-rounded "
-								th:src="${duser.avatarUrl}">
+								th:src="${myviewer.user.avatarUrl}">
 							</a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">
-								<span th:text="${duser.nickname}"></span>
+								<span th:text="${myviewer.user.nickname}"></span>
 							</h4>
 							<button class="btn btn-success  pull-right"
-								onclick="opendialog(this)" th:data-id="${duser.id}"
-								th:data-name="${duser.nickname}">私信</button>
+								onclick="opendialog(this)" th:data-id="${myviewer.user.id}"
+								th:data-name="${myviewer.user.nickname}">私信</button>
 
 
 						</div>

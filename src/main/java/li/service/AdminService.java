@@ -5,6 +5,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import li.dto.GetDialogUserDTO;
 import li.dto.PaginationDTO;
 import li.dto.QuestionDTO;
 import li.dto.UserDTO;
@@ -128,4 +130,7 @@ public class AdminService {
 		}
 		adminDao.LimitQuestion(question);
 	}
+	
+	
+	
 }

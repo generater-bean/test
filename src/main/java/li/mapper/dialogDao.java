@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 import li.model.DialogInfo;
+import li.model.Friend;
 import li.model.Profile;
 import li.model.User;
 @Component
@@ -52,6 +53,38 @@ public class dialogDao {
 		session.update("li.mapper.dialog.updateStatus", dialogInfo);
 		session.commit();
 	}
+	public void insertFriend(Friend friend) {
+		// TODO Auto-generated method stub
+		session.insert("li.mapper.dialog.insertFriend",friend);
+		session.commit();
+	}
+	public void resetFriend(Friend friend) {
+		// TODO Auto-generated method stub
+		session.insert("li.mapper.dialog.resetFriend",friend);
+		session.commit();
+	}
+	
+	public int acountFriend(long id) {
+		// TODO Auto-generated method stub
+		int totalcount	=session.selectOne("li.mapper.dialog.acountFriend",id);
+		return totalcount;
+		
+	}
+	public List<Friend> selectByUserId(Profile profile) {
+		// TODO Auto-generated method stub
+		List<Friend> friends=session.selectList("li.mapper.dialog.selectByUserId", profile);
+		return friends;
+	}
+	public Friend selectByUserId(Friend friend) {
+		// TODO Auto-generated method stub
+		Friend friend1=session.selectOne("li.mapper.dialog.selectFriendByUserId", friend);
+		
+		return friend1;
+		
+		
+		
+	}
+	
 	
 	
 }

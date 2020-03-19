@@ -1,4 +1,44 @@
-	function opendialog(e){
+//添加关注
+ function addFriend(e){
+	 var userName = e.getAttribute("data-username");
+	 var userId=e.getAttribute("data-userid");
+	 var friendId=e.getAttribute("data-friendid");
+	 var friendName=e.getAttribute("data-friendname");
+	 var friendGroup="默认分组";
+	 var status=e.getAttribute("data-status");
+	 
+	 $.ajax({
+		  type: "POST",
+		  url: "/addfriend",
+		  contentType:'application/json',
+		  data: JSON.stringify({		  
+			  "userName":userName,
+			  "userId":userId,
+			  "friendId":friendId,
+			  "friendName":friendName,
+			  "friendGroup":friendGroup,
+			  "status":status
+		  }) ,
+		  success: function(response){
+
+			  if(response.code==200){				  
+				  window.location.reload();
+				  
+			  }else{			
+						  alert(response.message);
+						  window.location.reload();
+				  
+			  }
+			
+		  },
+		  
+		  dataType: "json"
+		});
+ }
+
+
+
+ function opendialog(e){
 	
 	var dialogId=e.getAttribute("data-id");
 	var dialogName=e.getAttribute("data-name");
@@ -131,6 +171,7 @@ function locallogin(){
 		window.open("https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101809971&redirect_uri=http://192.168.43.104/connect&scope=get_user_info")
 		window.localStorage.setItem("closable",true);
 		window.location.reload();
+		
 	}
 //GitHub登录
 	function githublogin(){
